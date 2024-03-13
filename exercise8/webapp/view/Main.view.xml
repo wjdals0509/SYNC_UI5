@@ -1,0 +1,10 @@
+<mvc:View controllerName="sync.e21.exercise8.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <core:Fragment fragmentName="sync.e21.exercise8.view.InputFrag" type="XML" />
+        </content>
+    </Page>
+</mvc:View>
