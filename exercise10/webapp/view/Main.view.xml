@@ -26,6 +26,16 @@
                     </Page>
                 </pages>
             </Carousel>
+
+            <List items="{/ConnectionSet}">
+                <items>
+                    <!-- 이 구역은 ConnectionSet의 라인 수 만큼 반복 -->
+                    <StandardListItem 
+                        title="항공사 {Carrid}, 항공편 {Connid}"
+                        description="출발도시: {Cityfrom} / 도착도시: {Cityto}"
+                    />
+                </items>
+            </List>
         </content>
     </Page>
 </mvc:View>
