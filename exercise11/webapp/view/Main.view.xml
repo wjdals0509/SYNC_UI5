@@ -5,7 +5,10 @@
         <content >
             <!-- 항공사 리스트를 위한 Panel -->
             <Panel headerText="Carriers" expandable="false" expanded="true" height="200px" >
-                <Table items="{/CarrierSet}" >
+                <Table 
+                    items="{/CarrierSet}" 
+                    mode="SingleSelect"
+                    >
                     <!-- column은 딱 한번만 출력 -->
                     <columns>
                         <Column ><Label text="항공사ID" /></Column>
