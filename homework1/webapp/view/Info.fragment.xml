@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Dialog id="idDialog"
+            title="팝업창">
+        <buttons>
+            <Button text="닫기" press="onDialogClose" />
+        </buttons>
+
+        <content>
+            <f:SimpleForm >
+                <f:content>
+                    <Text text="테스트" />
+                </f:content>
+            </f:SimpleForm>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>
