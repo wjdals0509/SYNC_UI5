@@ -7,7 +7,7 @@
             <Panel headerText="Carriers" expandable="false" expanded="true" height="200px" >
                 <Table 
                     items="{/CarrierSet}" 
-                    mode="SingleSelect"
+                    mode="SingleSelectMaster"
                     >
                     <!-- column은 딱 한번만 출력 -->
                     <columns>
