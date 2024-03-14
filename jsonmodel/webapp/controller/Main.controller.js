@@ -20,6 +20,9 @@ sap.ui.define([
                 // Model의 데이터로 전달된다.
                 let oModel = new JSONModel(data);
 
+                // JSON Model의 Binding Mode 를 Two-Way에서 One-Way로 변경
+                oModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay);
+
                 // 이 Controller와 연결된 View의 기본 모델로 설정
                 this.getView().setModel(oModel);
             }
