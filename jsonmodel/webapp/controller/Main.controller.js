@@ -23,7 +23,7 @@ sap.ui.define([
                 // JSON Model의 Binding Mode 를 Two-Way에서 One-Way로 변경
                 // 입력필드에 다른 값을 넣어도 Model에 기록되지 않아서
                 // 입력필드 위에 있는 Text는 변경되지 않는다
-                oModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay);
+                //oModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay);
 
                 // 이 Controller와 연결된 View의 기본 모델로 설정
                 this.getView().setModel(oModel);
