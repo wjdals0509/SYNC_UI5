@@ -6,12 +6,14 @@
             <!-- 항공사 리스트를 위한 Panel -->
             <Panel headerText="Carriers" expandable="false" expanded="true" height="200px" >
                 <Table items="{/CarrierSet}" >
+                    <!-- column은 딱 한번만 출력 -->
                     <columns>
                         <Column ><Label text="항공사ID" /></Column>
                         <Column ><Label text="항공편번호" /></Column>
                         <Column ><Label text="통화코드" /></Column>
                         <Column ><Label text="홈페이지" /></Column>
                     </columns>
+                    <!-- items는 CarrierSet의 갯수만큼 출력 -->
                     <items>
                         <ColumnListItem >
                             <cells>
