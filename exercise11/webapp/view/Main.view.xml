@@ -20,7 +20,7 @@
                                 <Text text="{Carrid}" />
                                 <Text text="{Carrname}" />
                                 <Text text="{Currcode}" />
-                                <Text text="{Url}" />
+                                <Link text="{Url}" href="{Url}" />
                             </cells>
                         </ColumnListItem>
                     </items>
