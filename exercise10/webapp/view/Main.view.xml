@@ -15,6 +15,12 @@
 
                                 <Label text="Flight number" />
                                 <Text text="{Connid}" /> <!--항공편의 번호-->
+
+                                <Label text="Departure" />
+                                <Text text="{Cityfrom}" /> <!--항공편의 출발도시-->
+
+                                <Label text="Destination" />
+                                <Text text="{Cityto}" /> <!--항공편의 도착도시-->
                             </f:SimpleForm>
                         </content>
                     </Page>
