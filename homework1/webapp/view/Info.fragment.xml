@@ -5,17 +5,22 @@
     xmlns:f="sap.ui.layout.form"
 >
     <Dialog id="idDialog"
-            title="팝업창">
+            title="항공편 정보">
         <buttons>
             <Button text="닫기" press="onDialogClose" />
         </buttons>
 
         <content>
-            <f:SimpleForm >
-                <f:content>
-                    <Text text="테스트" />
-                </f:content>
-            </f:SimpleForm>
+            <l:VerticalLayout >
+                <f:SimpleForm >
+                    <f:content>
+                        <l:HorizontalLayout >
+                            <Label text="항공사" />
+                            <Text text="{}" />
+                        </l:HorizontalLayout>
+                    </f:content>
+                </f:SimpleForm>
+            </l:VerticalLayout>
         </content>
     </Dialog>
 </core:FragmentDefinition>
