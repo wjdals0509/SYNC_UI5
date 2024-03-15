@@ -24,7 +24,29 @@
                 expanded="{device>/system/desktop}"
             >
                 <content>
-                    <Text text="test" />
+                    <Table id="idTable" 
+                        items="{ /Flight }"
+                    >
+                    <columns>
+                        <Column ><Label text="Carrier" /></Column>
+                        <Column ><Label text="Connection" /></Column>
+                        <Column ><Label text="Flight Date" /></Column>
+                        <Column ><Label text="Price" /></Column>
+                        <Column ><Label text="Availability" /></Column>
+                        <Column ><Label text="Free Seats" /></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem >
+                            <ObjectIdentifier title="{ Carrid }"></ObjectIdentifier>
+                            <ObjectIdentifier title="{ Connid }"></ObjectIdentifier>
+                            <ObjectIdentifier title="{ Fldate }"></ObjectIdentifier>
+
+                            <ObjectNumber number="{ Price }" unit="{ Currency }" />
+                            <CheckBox selected=""/>
+                            <Text text=""/>
+                        </ColumnListItem>
+                    </items>
+                    </Table>
                 </content>
             </Panel>
         </content>
