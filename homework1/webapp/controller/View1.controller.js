@@ -20,9 +20,8 @@ sap.ui.define([
 
                 let oView = this.getView();
                 let oDialog = this.byId("idDialog");
+
                 if ( oDialog ){
-                    oCarr.setText(Carrid);
-                    
                     oDialog.open(); 
                                     
                 } else {

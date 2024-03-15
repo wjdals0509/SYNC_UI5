@@ -15,10 +15,10 @@
                 <f:SimpleForm >
                     <f:content>
                         <l:HorizontalLayout >
-                            <Label text="항공사" />
-                            <Text text="{/Carrid}" />
+                            <Label text="" />
+                            <Text id ="idText" />
                         </l:HorizontalLayout>
-                        <l:HorizontalLayout >
+                        <!-- <l:HorizontalLayout >
                             <Label text="항공편번호" />
                             <Text text="{/Connid}" />
                         </l:HorizontalLayout>
@@ -37,7 +37,7 @@
                         <l:HorizontalLayout >
                             <Label text="비행거리" />
                             <Text text="{/Distance}{/Distid}" />
-                        </l:HorizontalLayout>
+                        </l:HorizontalLayout> -->
 
                     </f:content>
                 </f:SimpleForm>
