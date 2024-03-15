@@ -2,6 +2,31 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-        <content />
+        <content>
+            <!-- 
+                모바일   : 접을 수 이고, 접혀있는 상태로 출력 
+                데스크탑 : 접을 수 없고, 펼쳐진 상태로 출력
+
+                device 모델의 /system/desktop 경로에는
+                데스크탑으로 웹페이지를 접근하면 true로 기록되어 있다.
+
+                아래와 같은 설정의 경우 데스크탑으로 접속 시
+                expandable은 true의 반대인 false가 전달되고, ( 접을수X )
+                expanded는 true로 전달된다. ( 펼쳐져 있다 )
+
+                데스크탑이 아닌 경우라면 /system/desktop 은 false가 된다.
+                expandable은 false의 반대인 true가 전달되고, (접을 수 있다)
+                expanded는 false로 전달된다. ( 접혀있다 )
+            -->
+            <Panel 
+                headerText="Flights" 
+                expandable="{= ! ${device>/system/desktop} }" 
+                expanded="{device>/system/desktop}"
+            >
+                <content>
+                    <Text text="test" />
+                </content>
+            </Panel>
+        </content>
     </Page>
 </mvc:View>
