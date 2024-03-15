@@ -22,6 +22,8 @@ sap.ui.define([
                 let oView = this.getView();
                 let oDialog = this.byId("idDialog");
                 if ( oDialog ){
+                    oCarr.setText(Carrid);
+                    
                     oDialog.open(); // Fragment를 Load한 적이 있으면 byId로 찾을 수 있따.
                                     // 그렇게 찾은 Fragment를 팝업창으로 보여준다.
                 } else {
