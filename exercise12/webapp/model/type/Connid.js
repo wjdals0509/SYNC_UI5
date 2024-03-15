@@ -6,7 +6,7 @@ sap.ui.define([
     function( SimpleType, ValidateException ) {
         'use strict';
         return SimpleType.extend("sync.e21.exercise12.model.type.Connid", {
-            formatValue: function ( oEvent ) {
+            formatValue: function ( oValue ) {
                 // 입력된 값 그대로 화면에 출력할 경우
                 return oValue;
             },
@@ -16,7 +16,7 @@ sap.ui.define([
                 return oValue;
             },
 
-            validValue: function( oValue ) {
+            validateValue: function( oValue ) {
                 // /^    : 문자의 시작
                 // \d    : 숫자
                 // \d{4} : 숫자 4개
