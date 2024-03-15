@@ -15,8 +15,29 @@
                 <f:SimpleForm >
                     <f:content>
                         <l:HorizontalLayout >
-                            <Label text="" />
-                            <Text id ="idText" />
+                            <Label text="항공사" width="150px" />
+                            <Text text="{Carrid}"/>
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="항공편번호" width="150px"/>
+                            <Text text="{Connid}"/>
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="비행시간" width="150px"/>
+                            <Text text="{Fltime}"/>
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="출발시간" width="150px"/>
+                            <Text text="{Deptime}"/>
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="도착시간" width="150px"/>
+                            <Text text="{Arrtime}"/>
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="비행거리" width="150px"/>
+                            <Text text="{Distance}"/>
+                            <Text text="{Distid}"/>
                         </l:HorizontalLayout>
                     </f:content>
                 </f:SimpleForm>
