@@ -14,14 +14,20 @@ sap.ui.define([
             onSelectionChange: function ( oEvent ) {
                 let oItem = oEvent.getParameter("listItem");
                 let oContext = oItem.getBindingContext();
-                let oCarr = oContext.getProperty("Carrid");
-                let oConn = oContext.getProperty("Connid");
-                sap.m.MessageToast.show("선택하신 라인은 항공사: " + oCarr + ", 항공편: " + oConn + "의 정보입니다." );
+                let Carr = oContext.getProperty("Carrid");
+                let Conn = oContext.getProperty("Connid");
+                let Cntfr = oContext.getProperty("Countryfr");
+                let Ctfr = oContext.getProperty("Cityfrom");
+                let Cntto = oContext.getProperty("Countryto");
+                let Ctto = oContext.getProperty("Cityto");
+                sap.m.MessageToast.show("선택하신 라인은 항공사: " + Carr + ", 항공편: " + Conn + "의 정보입니다." );
 
                 let oView = this.getView();
                 let oDialog = this.byId("idDialog");
 
                 if ( oDialog ){
+                    let oText = this.byId("idText");
+                    oText.setText("");
                     oDialog.open(); 
                                     
                 } else {
@@ -34,6 +40,8 @@ sap.ui.define([
 
                     oFragment.then(function( oDialog ) {
                         oView.addDependent(oDialog); 
+                        let oText = oView.byId("idText");
+                        oText.setText();    
                         oDialog.open(); 
                     });
                 }

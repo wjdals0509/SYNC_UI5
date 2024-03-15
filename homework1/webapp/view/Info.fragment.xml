@@ -18,27 +18,6 @@
                             <Label text="" />
                             <Text id ="idText" />
                         </l:HorizontalLayout>
-                        <!-- <l:HorizontalLayout >
-                            <Label text="항공편번호" />
-                            <Text text="{/Connid}" />
-                        </l:HorizontalLayout>
-                        <l:HorizontalLayout >
-                            <Label text="비행시간" />
-                            <Text text="{/Fltime}" />
-                        </l:HorizontalLayout>
-                        <l:HorizontalLayout >
-                            <Label text="출발시간" />
-                            <Text text="{/Deptime}" />
-                        </l:HorizontalLayout>
-                        <l:HorizontalLayout >
-                            <Label text="도착시간" />
-                            <Text text="{/Arrtime}" />
-                        </l:HorizontalLayout>
-                        <l:HorizontalLayout >
-                            <Label text="비행거리" />
-                            <Text text="{/Distance}{/Distid}" />
-                        </l:HorizontalLayout> -->
-
                     </f:content>
                 </f:SimpleForm>
             </l:VerticalLayout>
