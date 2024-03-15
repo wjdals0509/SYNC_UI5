@@ -33,6 +33,7 @@ sap.ui.define([
                 // 이렇게 테이블에서 현재 경로를 설정하면
                 // items에 적은 {toConnection} 은 
                 // {선택한 항공사/toConnection} 이라고 적은 것과 같다.
+                // 이 CarrierSet('AA')/ 경로에서 {toConnection} 을 찾아라 
                 oConnTable.bindElement(selectedPath);
 
             }
