@@ -37,11 +37,25 @@
                     </columns>
                     <items>
                         <ColumnListItem >
-                            <ObjectIdentifier title="{Carrid}"></ObjectIdentifier>
-                            <ObjectIdentifier title="{Connid}"></ObjectIdentifier>
-                            <ObjectIdentifier title="{Fldate}"></ObjectIdentifier>
+                            <ObjectIdentifier title="{Carrid}" />
+                            <ObjectIdentifier title="{Connid}" />
+                            <ObjectIdentifier 
+                                title="{
+                                    path: 'Fldate',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        pattern: 'yy.MM.dd'
+                                    }
+                            }" />
 
-                            <ObjectNumber number="{Price}" unit="{Currency}" />
+                            <ObjectNumber 
+                                number="{
+                                    parts: [ {path: 'Price'} , {path: 'Currency'} ],
+                                    type: 'sap.ui.model.type.Currency',
+                                    formatOptions: {
+                                        showMeasure: false
+                                    }
+                                }" unit="{Currency}" />
                             <CheckBox selected=""/>
                             <Text text=""/>
                         </ColumnListItem>
