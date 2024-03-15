@@ -25,7 +25,7 @@
             >
                 <content>
                     <Table id="idTable" 
-                        items="{ /Flight }"
+                        items="{/FlightSet}"
                     >
                     <columns>
                         <Column ><Label text="Carrier" /></Column>
@@ -37,11 +37,11 @@
                     </columns>
                     <items>
                         <ColumnListItem >
-                            <ObjectIdentifier title="{ Carrid }"></ObjectIdentifier>
-                            <ObjectIdentifier title="{ Connid }"></ObjectIdentifier>
-                            <ObjectIdentifier title="{ Fldate }"></ObjectIdentifier>
+                            <ObjectIdentifier title="{Carrid}"></ObjectIdentifier>
+                            <ObjectIdentifier title="{Connid}"></ObjectIdentifier>
+                            <ObjectIdentifier title="{Fldate}"></ObjectIdentifier>
 
-                            <ObjectNumber number="{ Price }" unit="{ Currency }" />
+                            <ObjectNumber number="{Price}" unit="{Currency}" />
                             <CheckBox selected=""/>
                             <Text text=""/>
                         </ColumnListItem>
