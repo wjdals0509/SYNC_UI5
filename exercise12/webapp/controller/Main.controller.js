@@ -21,11 +21,11 @@ sap.ui.define([
                 
                 // Message Manager를 가져와서 Main View에 등록한다.
                 // 오류가 발생한 위치에 메세지가 붙어있을 수 있도록 이벤트 핸들링 옵션도 true로 설정한다.
-                sap.ui.getCore().getMessageManager().registerObject(oView, false);
+                sap.ui.getCore().getMessageManager().registerObject(oView, true);
             },
             onCarridValidError: function ( oEvent ) {
-                let oSource = oEvent.getSource();
-                oSource.setValueState(sap.ui.core.ValueState.Error);
+                // let oSource = oEvent.getSource();
+                // oSource.setValueState(sap.ui.core.ValueState.Error);
 
                 let oView = this.getView();
                 let oModel = oView.getModel("view");
