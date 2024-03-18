@@ -53,6 +53,12 @@ sap.ui.define([
 
                 }
 
+            },
+            onClosePress: function () {
+                let oDialog = this.byId("idDialog");
+                if ( oDialog ) {
+                    oDialog.close();
+                }
             } 
         });
     });
