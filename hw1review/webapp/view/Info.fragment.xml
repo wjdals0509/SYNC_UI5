@@ -16,10 +16,23 @@
                  <Text text="{Fltime}" />
                  <!-- 신규라인 -->
                  <Label text="출발시간" />
-                 <Text text="{Deptime}" />
+                 <!-- 데이터 타입이 time인 property를 출력하기 위한 구문 -->
+                 <Text text="{
+                    path: 'Deptime',
+                    type: 'sap.ui.model.odata.type.Time',
+                    formatOptions: {
+                        pattern: 'hh:mm:ss'
+                    }
+                }" />
                  <!-- 신규라인 -->
                  <Label text="도착시간" />
-                 <Text text="{Arrtime}" />
+                 <Text text="{
+                    path: 'Arrtime',
+                    type: 'sap.ui.model.odata.type.Time',
+                    formatOptions: {
+                        pattern: 'hh:mm:ss'
+                    }
+                }" />
                  <!-- 신규라인 -->
                  <Label text="비행거리" />
                  <ObjectNumber 
