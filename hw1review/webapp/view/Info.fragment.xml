@@ -21,7 +21,7 @@
                     path: 'Deptime',
                     type: 'sap.ui.model.odata.type.Time',
                     formatOptions: {
-                        pattern: 'hh:mm:ss'
+                        pattern: 'HH:mm:ss'
                     }
                 }" />
                  <!-- 신규라인 -->
@@ -30,7 +30,7 @@
                     path: 'Arrtime',
                     type: 'sap.ui.model.odata.type.Time',
                     formatOptions: {
-                        pattern: 'hh:mm:ss'
+                        pattern: 'HH:mm:ss'
                     }
                 }" />
                  <!-- 신규라인 -->
