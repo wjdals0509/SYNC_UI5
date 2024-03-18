@@ -32,10 +32,10 @@
                             <ObjectIdentifier title="{Connid}" />
                             <!-- 키필드를 제외한 나머지 필드를 표현하기 위한 ObjectAttribute -->
                             <!-- Text를 사용해도 무방 -->
-                            <ObjectAttribute title="{Countryfr}" />
-                            <ObjectAttribute title="{Cityfrom}" />
-                            <ObjectAttribute title="{Countryto}" />
-                            <ObjectAttribute title="{Cityto}" />
+                            <ObjectAttribute text="{Countryfr}" />
+                            <ObjectAttribute text="{Cityfrom}" />
+                            <ObjectAttribute text="{Countryto}" />
+                            <ObjectAttribute text="{Cityto}" />
                         </cells>
                     </ColumnListItem>
                 </items>
