@@ -28,11 +28,23 @@
                         </l:HorizontalLayout>
                         <l:HorizontalLayout >
                             <Label text="출발시간" width="150px"/>
-                            <Text text="{Deptime}"/>
+                            <Text text="{
+                                path: 'Deptime',
+                                type: 'sap.ui.model.odata.type.Time',
+                                formatOptions: {
+                                    pattern: 'hh:mm:ss'
+                                }
+                            }" />
                         </l:HorizontalLayout>
                         <l:HorizontalLayout >
                             <Label text="도착시간" width="150px"/>
-                            <Text text="{Arrtime}"/>
+                            <Text text="{
+                                path: 'Arrtime',
+                                type: 'sap.ui.model.odata.type.Time',
+                                formatOptions: {
+                                    pattern: 'hh:mm:ss'
+                                }
+                            }" />
                         </l:HorizontalLayout>
                         <l:HorizontalLayout >
                             <Label text="비행거리" width="150px"/>
