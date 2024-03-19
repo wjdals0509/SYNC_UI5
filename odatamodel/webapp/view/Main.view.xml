@@ -5,6 +5,7 @@
     <Page id="page" title="{i18n>title}">
         <footer>
             <OverflowToolbar >
+                <!-- 좌측에 버튼을 생성하겠다 -->
                 <ToolbarSpacer />
                 <Button text="생성" press="onCreate" type="Accept" />
             </OverflowToolbar>
