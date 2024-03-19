@@ -29,7 +29,8 @@ sap.ui.define([
                         name: "sync.e21.odatamodel.view.New",
                         type: "XML",
                         controller: this             // View의 Controller를 공유
-                    }).then(function(oDialog){       
+                    }).then(function(oDialog){
+                        // 화면에 oDialog를 포함시킨다는 뜻       
                         oView.addDependent(oDialog); // View의 Model을 공유
                         oDialog.open();
                     });
@@ -51,6 +52,39 @@ sap.ui.define([
                     Currcode: "",
                     Url: ""    
                 });
+            },
+
+            onSaveConfirm: function () {
+                let oView = this.getView();
+                let oNewModel = oView.getModel("new"); // JSON Model
+                let oModel = oView.getModel();         // OData Model
+
+                // newData에는 내가 Dialog에 입력한 값이 들어간다
+                let newData = oNewModel.getData();
+                // newData = {Carrid: "~", Carrname: "~", ...}
+                // getData(). : 저장되어있는 structure 구조를 가져와라
+
+                debugger;
+
+                oModel.create(
+                  // 경로
+                  "/CarrierSet",
+                  // 신규데이터
+                  newData,
+                  // 결과처리
+                  {
+                    success: function ( oData, oResponse ){
+                        // oData: 생성된 데이터 내용 ( 내가 Dialog에 입력한 값 )
+                        // oResponse: 응답결과
+                        debugger;
+                        sap.m.MessageToast.show( oData.Carrid + "항공사가 생성되었습니다.");
+                    },
+                    error: function( oError ){
+                        debugger;
+                        sap.m.MessageBox.error("생성 중 오류가 발생되었습니다.");
+                    }
+                  }
+                );
             }
 
         });
