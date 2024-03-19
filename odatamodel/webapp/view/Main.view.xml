@@ -22,7 +22,7 @@
                     <t:Column >
                         <Label text="{i18n>labelCurrcode}" /> 
                         <t:template>
-                            <ObjectAttribute title="{Currcode}"></ObjectAttribute>
+                            <ObjectAttribute text="{Currcode}"></ObjectAttribute>
                         </t:template>
                     </t:Column>
                     <t:Column >
