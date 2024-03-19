@@ -3,6 +3,12 @@
     xmlns="sap.m"
     xmlns:t="sap.ui.table">
     <Page id="page" title="{i18n>title}">
+        <footer>
+            <OverflowToolbar >
+                <ToolbarSpacer />
+                <Button text="생성" press="onCreate" type="Accept" />
+            </OverflowToolbar>
+        </footer>
         <content>
             <t:Table visibleRowCount="10"
                 rows="{/CarrierSet}">
@@ -10,25 +16,25 @@
                     <t:Column >
                         <Label text="{i18n>labelCarrid}" /> 
                         <t:template>
-                            <ObjectIdentifier title="{Carrid}"></ObjectIdentifier>
+                            <ObjectIdentifier title="{Carrid}" />
                         </t:template>
                     </t:Column>
                     <t:Column >
                         <Label text="{i18n>labelCarrname}" /> 
                         <t:template>
-                            <ObjectAttribute text="{Carrname}"></ObjectAttribute>
+                                <ObjectAttribute text="{Carrname}" />
                         </t:template>
                     </t:Column>
                     <t:Column >
                         <Label text="{i18n>labelCurrcode}" /> 
                         <t:template>
-                            <ObjectAttribute text="{Currcode}"></ObjectAttribute>
+                            <ObjectAttribute text="{Currcode}" />
                         </t:template>
                     </t:Column>
                     <t:Column >
                         <Label text="{i18n>labelUrl}" /> 
                         <t:template>
-                            <Link text="웹페이지 이동" href="{Url}"></Link>
+                            <Link text="웹페이지 이동" href="{Url}" />
                         </t:template>    
                     </t:Column>
                 </t:columns>
