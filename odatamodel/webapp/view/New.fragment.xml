@@ -21,7 +21,8 @@
 
                 <Label text="{i18n>labelCurrcode}" />
                 <!-- <Input value="{new>/Currcode}" /> -->
-                <ComboBox items="{view>Currency}" change="onCurrencyChange">
+                <ComboBox items="{view>Currency}" 
+                    selectionChange="onCurrencyChange">
                     <items>
                         <c:Item key="{view>key}" text="{view>name}" />
                     </items>
