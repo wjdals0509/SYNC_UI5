@@ -10,13 +10,6 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("sync.e21.odatamodel.controller.Main", {
-            initAirlineData: {
-                Carrid: "",
-                Carrname: "",
-                Currcode: "",
-                Url: ""
-            },
-            
             onInit: function () {
                 let data = this.initAirlineData;
                 let oNewModel = new JSONModel(data);
@@ -51,9 +44,14 @@ sap.ui.define([
 
                 // 빈값만 있는 정보고 새로운 JSONModel을 만들어서
                 // 기존의 new 모델을 교체해버림 => 데이터 초기화
-                let oNewModel = new JSONModel(this.initAirlineData);
-                this.getView().setModel(oNewModel, "new");
+                let oNewModel = this.getView().getModel("new");
+                oNewModel.setData({
+                    Carrid: "",
+                    Carrname: "",
+                    Currcode: "",
+                    Url: ""    
+                });
             }
-            
+
         });
     });
