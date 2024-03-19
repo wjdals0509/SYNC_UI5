@@ -13,8 +13,8 @@
                 <Input value="{new>/Carrid}" />
                 <Label text="{i18n>labelCarrname}" />
                 <Input value="{new>/Carrname}" />
-                <Label text="{i18n>labelCurrency}" />
-                <Input value="{new>/Currency}" />
+                <Label text="{i18n>labelCurrcode}" />
+                <Input value="{new>/Currcode}" />
                 <Label text="{i18n>labelUrl}" />
                 <Input value="{new>/Url}" />                                                
             </f:SimpleForm>
