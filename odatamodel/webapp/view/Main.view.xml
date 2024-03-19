@@ -28,7 +28,7 @@
                     <t:Column >
                         <Label text="{i18n>labelUrl}" /> 
                         <t:template>
-                            <ObjectAttribute title="{Url}"></ObjectAttribute>
+                            <Link text="웹페이지 이동" href="{Url}"></Link>
                         </t:template>    
                     </t:Column>
                 </t:columns>
