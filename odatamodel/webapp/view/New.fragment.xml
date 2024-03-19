@@ -19,9 +19,9 @@
                 <Input value="{new>/Url}" />                                                
             </f:SimpleForm>
         </content>
+        <buttons>
+            <Button text="저장" press="onSaveConfirm" type="Accept" />
+            <Button text="취소" press="onSaveCancel" type="Reject" />
+        </buttons>
     </Dialog>
-    <buttons>
-        <Button text="저장" press="onSaveConfirm" type="Accept" />
-        <Button text="취소" press="onSaveCancel" type="Reject" />
-    </buttons>
 </c:FragmentDefinition>
