@@ -1,7 +1,38 @@
 <mvc:View controllerName="sync.e21.odatamodel.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table">
     <Page id="page" title="{i18n>title}">
-        <content />
+        <content>
+            <t:Table visibleRowCount="10"
+                rows="{/CarrierSet}">
+                <t:columns>
+                    <t:Column >
+                        <Label text="{i18n>labelCarrid}" /> 
+                        <t:template>
+                            <ObjectIdentifier title="{Carrid}"></ObjectIdentifier>
+                        </t:template>
+                    </t:Column>
+                    <t:Column >
+                        <Label text="{i18n>labelCarrname}" /> 
+                        <t:template>
+                            <ObjectAttribute title="{Carrname}"></ObjectAttribute>
+                        </t:template>
+                    </t:Column>
+                    <t:Column >
+                        <Label text="{i18n>labelCurrcode}" /> 
+                        <t:template>
+                            <ObjectAttribute title="{Currcode}"></ObjectAttribute>
+                        </t:template>
+                    </t:Column>
+                    <t:Column >
+                        <Label text="{i18n>labelUrl}" /> 
+                        <t:template>
+                            <ObjectAttribute title="{Url}"></ObjectAttribute>
+                        </t:template>    
+                    </t:Column>
+                </t:columns>
+            </t:Table>
+        </content>
     </Page>
 </mvc:View>
