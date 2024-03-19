@@ -16,7 +16,7 @@
                     <t:Column >
                         <Label text="{i18n>labelCarrname}" /> 
                         <t:template>
-                            <ObjectAttribute title="{Carrname}"></ObjectAttribute>
+                            <ObjectAttribute text="{Carrname}"></ObjectAttribute>
                         </t:template>
                     </t:Column>
                     <t:Column >
