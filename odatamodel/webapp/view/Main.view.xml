@@ -14,7 +14,14 @@
         </footer>
         <content>
             <t:Table visibleRowCount="10"
-                rows="{/CarrierSet}">
+                rows="{/CarrierSet}"
+                enableBusyIndicator="true">
+                <t:extension>
+                    <Toolbar >
+                        <ToolbarSpacer />
+                        <Button text="새로고침" icon="sap-icon://refresh" press="onRefresh" />
+                    </Toolbar>
+                </t:extension>
                 <t:columns>
                     <t:Column >
                         <Label text="{i18n>labelCarrid}" /> 
