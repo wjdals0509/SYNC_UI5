@@ -34,9 +34,17 @@ sap.ui.define([
             },
 
             onCreate: function () {
+                this.openDialog();
+            },
+
+            onUpdate: function () {
+                this.openDialog();
+            },
+            
+            openDialog: function () {
                 let oView = this.getView();
                 let oDialog = oView.byId("idNewDialog");
-
+    
                 if ( oDialog ) {
                     oDialog.open();
                 } else {
