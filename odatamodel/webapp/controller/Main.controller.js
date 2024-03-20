@@ -21,7 +21,9 @@ sap.ui.define([
                     Currency: [
                         { key: 'KRW', name: '원화'},
                         { key: 'USD', name: '달러'},
-                    ]
+                    ],
+                    // 생성버튼일때
+                    CreateMode: true
                 };
                 let oViewModel = new JSONModel(viewData);
                 oView.setModel(oViewModel, "view");
@@ -45,6 +47,9 @@ sap.ui.define([
                 let oNewModel = new JSONModel(data);
                 this.getView().setModel(oNewModel, "new");
 
+                let oViewModel = this.getView().getModel("view");
+                oViewModel.setProperty("/CreateMode", true);
+
                 // 항공사ID, 항공사명, 통화코드, 웹페이지 주소가 입력이 가능해야함
                 this.openDialog();
             },
@@ -60,6 +65,9 @@ sap.ui.define([
                 this.getView().setModel(oNewModel, "new");
 
                 // 항공사ID는 입력할 수 있으면 안된다.
+                let oViewModel = this.getView().getModel("view");
+                oViewModel.setProperty("/CreateMode", false);
+
                 // 항공사명, 통화코드, 웹페이지 주소는 입력이 가능해야 한다.
                 this.openDialog();
             },
