@@ -183,6 +183,8 @@ sap.ui.define([
                 // 특정 타입으로 지정되어 손쉽게 정보를 얻을 수 있음
                 /** @type {sap.ui.model.odata.v2.ODataModel} */
                 let oModel = this.getView().getModel();
+                // 한번 실행될 때 마다 GET_ENTITY_SET가 돌아감
+                // 좋은 방법은 아님
                 oModel.refresh();
             }
 
