@@ -174,6 +174,16 @@ sap.ui.define([
                         sap.m.MessageBox.error("삭제 중 오류가 발생함.")
                     }
                 })
+            },
+
+            onRefresh: function () {
+                // let은 변수를 선언하지만, 특별하게 타입을 구별하지는 않음
+                // 아래와 같이 /** @type {타입} */을 적게 되는 경우
+                // 그 아래에 나온 let으로 선언한 변수는
+                // 특정 타입으로 지정되어 손쉽게 정보를 얻을 수 있음
+                /** @type {sap.ui.model.odata.v2.ODataModel} */
+                let oModel = this.getView().getModel();
+                oModel.refresh();
             }
 
         });
