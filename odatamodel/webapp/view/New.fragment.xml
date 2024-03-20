@@ -40,7 +40,7 @@
                         <c:Item key="{view>key}" text="{view>name} {view>key}" />
                     </items>
                     <layoutData>
-                        <l:GridData span="S3" />
+                        <l:GridData span="S4" />
                     </layoutData>
                 </ComboBox>
 
