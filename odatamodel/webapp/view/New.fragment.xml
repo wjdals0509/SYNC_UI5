@@ -25,6 +25,7 @@
                     id="idComboBox"
                     items="{view>/Currency}" 
                     selectionChange="onCurrencyChange"
+                    selectedKey="{new>/Currcode}"
                 >
                     <items>
                         <c:Item key="{view>key}" text="{view>name} {view>key}" />

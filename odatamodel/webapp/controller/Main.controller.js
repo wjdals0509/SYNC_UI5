@@ -35,12 +35,30 @@ sap.ui.define([
 
             onCreate: function () {
                 // 아무것도 입력되지 않은 깨끗한 상태의 팝업창
+                let data = {
+                    Carrid: "",
+                    Carrname: "",
+                    Currcode: "",
+                    Url: ""
+                };
+
+                let oNewModel = new JSONModel(data);
+                this.getView().setModel(oNewModel, "new");
+
                 // 항공사ID, 항공사명, 통화코드, 웹페이지 주소가 입력이 가능해야함
                 this.openDialog();
             },
 
-            onUpdate: function () {
+            onUpdate: function ( oEvent ) {
                 // 내가 선택한 라인의 데이터가 자동으로 입력되어 있는 상태의 팝업창
+                let oButton = oEvent.getSource(); // oEvent가 발생한 출처(source)는 button
+                let oContext = oButton.getBindingContext();
+                //let path = oContext.getPath();      // 내가 선택한 라인과 연결된 모델의 경로 /CarrierSet('AA')
+                let data = oContext.getProperty();  // 어떤 데이터가 들어가나?
+                
+                let oNewModel = new JSONModel(data);
+                this.getView().setModel(oNewModel, "new");
+
                 // 항공사ID는 입력할 수 있으면 안된다.
                 // 항공사명, 통화코드, 웹페이지 주소는 입력이 가능해야 한다.
                 this.openDialog();
