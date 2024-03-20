@@ -127,26 +127,54 @@ sap.ui.define([
 
                 debugger;
 
-                // HTTP Method 에서 POST 방식으로 호출하는 방법
-                oModel.create(
-                  // 경로
-                  "/CarrierSet",
-                  // 신규데이터
-                  newData,
-                  // 결과처리
-                  {
-                    success: function ( oData, oResponse ){
-                        // oData: 생성된 데이터 내용 ( 내가 Dialog에 입력한 값 )
-                        // oResponse: 응답결과
-                        debugger;
-                        sap.m.MessageToast.show( oData.Carrid + "항공사가 생성되었습니다.");
-                    },
-                    error: function( oError ){
-                        debugger;
-                        sap.m.MessageBox.error("생성 중 오류가 발생되었습니다.");
+                let oViewModel = oView.getModel("view");
+                let createMode = oViewModel.getProperty("/CreateMode"); // true(생성) 또는 false(수정)
+
+                if ( createMode ) {
+                    // 생성
+                    // oModel.create(경로, 신규 데이터, 결과처리);
+                    oModel.create(
+                      // 경로
+                      "/CarrierSet",
+                      // 신규데이터
+                      newData,
+                      // 결과처리
+                      {
+                        success: function ( oData, oResponse ){
+                            // oData: 생성된 데이터 내용 ( 내가 Dialog에 입력한 값 )
+                            // oResponse: 응답결과
+                            debugger;
+                            sap.m.MessageToast.show( oData.Carrid + "항공사가 생성되었습니다.");
+                        },
+                        error: function( oError ){
+                            debugger;
+                            sap.m.MessageBox.error("생성 중 오류가 발생되었습니다.");
+                        }
+                      }
+                    );
+                } else {
+                    // 수정
+                    // oModel.update(경로, 변경할 데이터, 결과처리);
+                    oModel.update(
+                        // /CarrierSet('AA') 와 같이 만들기 위해
+                        // 문자열 /CarrierSet(' 와 ') 의 사이에 항공사 코드(AA)를 합치는 작업
+                        // A + B + C => 완성된 경로 /CarrierSet('AA')
+                        // A : /CarrierSet('
+                        // B : 항공사코드 (ex. AA)
+                        // C : ')
+                        "/CarrierSet('" + newData.Carrid + "')",
+                    newData,{
+                        success: function() {
+                            sap.m.MessageToast( newData.Carrid + "항공사가 수정되었습니다.");
+                        },
+                        error: function ( oError ) {
+                            sap.m.MessageToast.error("수정 중 오류가 발생했습니다.");
+                        }
                     }
-                  }
-                );
+                    );
+                }
+
+                // HTTP Method 에서 POST 방식으로 호출하는 방법
 
                 // 생성을 위한 팝업창 닫기
                 this.onSaveCancel();
