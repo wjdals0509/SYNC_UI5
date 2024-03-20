@@ -1,7 +1,9 @@
 <mvc:View controllerName="sync.e21.odatamodel.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
-    xmlns:t="sap.ui.table">
+    xmlns:t="sap.ui.table"
+    xmlns:l="sap.ui.layout"
+    >
     <Page id="page" title="{i18n>title}">
         <footer>
             <OverflowToolbar >
@@ -40,8 +42,13 @@
                     </t:Column>
                     <t:Column>
                         <Label text="{i18n>labelAction}" />
+                        <!-- template태그 안에는 반드시 하나만 있어야함 -->
+                        <!-- 따라서 HorizontalLayout으로 버튼2개를 하나로 묶어줌 -->
                         <t:template>
-                            <Button icon="sap-icon://delete" press="onDelete" />
+                            <l:HorizontalLayout>
+                                <Button icon="sap-icon://edit" press="onUpdate" class="sapUiTinyMarginEnd" />
+                                <Button icon="sap-icon://delete" press="onDelete" />
+                            </l:HorizontalLayout>
                         </t:template>
                     </t:Column>
                 </t:columns>
