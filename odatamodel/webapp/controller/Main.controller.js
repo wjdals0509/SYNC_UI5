@@ -165,7 +165,7 @@ sap.ui.define([
                         "/CarrierSet('" + newData.Carrid + "')",
                     newData,{
                         success: function() {
-                            sap.m.MessageToast( newData.Carrid + "항공사가 수정되었습니다.");
+                            sap.m.MessageToast.show( newData.Carrid + "항공사가 수정되었습니다.");
                         },
                         error: function ( oError ) {
                             sap.m.MessageToast.error("수정 중 오류가 발생했습니다.");
