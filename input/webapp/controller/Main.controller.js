@@ -52,8 +52,10 @@ sap.ui.define([
 
                 let data = oModel.getData(); // JSON Model만 사용할 수 있는
                                              // getData()를 통해 데이터 조회
-                let value1 = parseInt(data.value1);
-                let value2 = parseInt(data.value2);
+                // let value1 = parseInt(data.value1);
+                // let value2 = parseInt(data.value2);
+                let value1 = data.value1;
+                let value2 = data.value2;
                 let result = value1 + value2
 
                 data.result = result;
