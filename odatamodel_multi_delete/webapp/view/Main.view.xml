@@ -28,9 +28,8 @@
                         <t:template>
                             <ComboBox selectedKey="{Currcode}" 
                                 items="{view>/Currency}"
-                                editable="true"
-                                enabled="false"
-                                open="true">
+                                editable="false"
+                                enabled="true">
                                 <items>
                                     <!-- 위에서 xmlns:core="sap.ui.core" 를 <mvc:View> 의 속성으로 추가 -->
                                         <core:Item key="{view>Key}" text="{view>Key} : {view>Name}" />
