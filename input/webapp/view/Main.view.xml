@@ -27,16 +27,24 @@
                     <Label text="숫자1" />
                     <Input value="{
                         path: '/value1',
+                        type: 'sap.ui.model.type.Float'
+                    }" type="Number"  />
+                    <!-- <Input value="{
+                        path: '/value1',
                         type: 'sap.ui.model.type.Integer'
                     }" type="Number" 
-                       validationError="onValidError"/>
+                       validationError="onValidError" /> -->
 
                     <Label text="숫자2" />
                     <Input value="{
                         path: '/value2',
                         type: 'sap.ui.model.type.Integer'
+                    }" type="Number"/>
+                    <!-- <Input value="{
+                        path: '/value2',
+                        type: 'sap.ui.model.type.Integer'
                     }" type="Number"
-                       validationError="onValidError" />
+                       validationError="onValidError" /> -->
 
                     <Label text="결과" />
                     <Input value="{/result}" editable="false" />

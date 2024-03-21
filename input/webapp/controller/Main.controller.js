@@ -20,6 +20,10 @@ sap.ui.define([
                 // 기본 모델로 사용하고자 이름을 주지 않는다.
                 this.getView().setModel(oModel);
 
+                // 화면에 오류가 발생한 부분을 메세지와 함께 표시해주는 기능
+                let oMsgManager = sap.ui.getCore().getMessageManager();
+                oMsgManager.registerObject(this.getView(), true);
+
             },
             onAdd: function () {
                 sap.m.MessageToast.show("더하기 버튼을 눌렀습니다,");
@@ -62,5 +66,9 @@ sap.ui.define([
 
                 oModel.setData(data);
             }
+            
+            // onValidError: function ( oEvent ) {
+            //     oEvent.getSource().setValueState("Error");
+            // }
         });
     });
