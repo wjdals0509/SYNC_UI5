@@ -22,9 +22,14 @@ sap.ui.define([
                 let value1 = oInput1.getValue();
                 let value2 = oInput2.getValue();
 
+                // 입력필드 공백일 때 0으로 취급
+                if ( value1 == "" ){ value1 = 0; }
+                if ( value2 == "" ){ value1 = 0; }
+
                 // 정수 value1, value2 계산 결과
                 // 가져온 값을 정수로 취급하면, 소수가 없어짐
-                let result = parseInt(value1) + parseInt(value2);
+                //let result = parseInt(value1) + parseInt(value2);
+                let result = parseFloat(value1) + parseFloat(value2);
 
                 // 계산 결과를 기록
                 oText.setText("계산결과는?? ==>" + result);
