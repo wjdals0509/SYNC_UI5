@@ -31,12 +31,12 @@ sap.ui.define([
                 let oViewModel = this.getView().getModel("view");
                 oViewModel.setProperty("/EditMode", false);
 
-                /** @type {sap.ui.model.odata.v2.ODataModel} */
                 let oModel = this.getView().getModel(); // OData Model
                 oModel.resetChanges();
             },
             onRefresh: function () {
                 let oModel = this.getView().getModel(); // OData Model
+
                 oModel.resetChanges();
                 oModel.refresh(true, true);
             },
@@ -58,7 +58,8 @@ sap.ui.define([
                 // 여기가 실행된다는 것은 aIndex에 한 줄 이상 있다는 뜻
 
                 let oModel = oView.getModel();
-                let successCount = 0;
+                let successCount = 0; // 성공 횟수
+                let errorCount = 0;   // 오류 횟수
 
                 // 선택한 라인마다 전부 oModel.update(경로, 변경할 데이터, 결과처리);
                 // 배열 aIndex의 인덱스 정보를 index 변수에 전달하면서 반복
@@ -87,7 +88,7 @@ sap.ui.define([
                         error: function () {
                             errorCount++;
 
-                            if ( aIndex.length = errorCount){
+                            if ( aIndex.length = errorCount ){
                                 // 모두 실패했을 때
                                 sap.m.MessageBox.error(errorCount + "건의 데이터가 변경실패 했습니다.")
                             } else if ( aIndex.length == successCount + errorCount ){
