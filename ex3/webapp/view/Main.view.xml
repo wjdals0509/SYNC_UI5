@@ -1,0 +1,50 @@
+<mvc:View controllerName="sync.e21.ex3.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <!-- <Panel headerText="항공편 정보" height="100%"> -->
+            <Panel headerText="항공편 정보" expandable="true" height="100%">
+                <Table
+                    id="idTable"
+                    items="{/ConnectionSet}"
+                    mode="MultiSelect"
+                    selectionChange=".onSelectionChange">
+                    <columns>
+                        <Column width="7rem" hAlign="Left" ><Label text="항공사ID" /></Column>
+                        <Column width="7rem" hAlign="Left" ><Label text="항공편No" /></Column>
+                        <Column ><Label text="출발도시" /></Column>
+                        <Column ><Label text="도착도시" /></Column>
+                        <Column ><Label text="비행시간" /></Column>
+                        <Column ><Label text="비행거리" /></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem >
+                            <cells>
+                                <ObjectIdentifier title="{Carrid}" />
+                                <ObjectIdentifier title="{Connid}" />
+                                <Text text="{Cityfrom}({Countryfr})" />
+                                <Text text="{Cityto}({Countryto})" />
+                                <Text text="{Deptime}~{Arrtime}" />
+                                <ObjectNumber 
+                                    number="{
+                                        path: 'Distance',
+                                        type: 'sap.ui.model.type.Integer'
+                                    }"
+                                    unit="{Distid}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Panel>
+        </content>
+        <footer>
+            <OverflowToolbar >
+                <content>
+                    <ToolbarSpacer />
+                    <Button text="신규생성" icon="sap-icon://add-activity" press="onAdd" type="Accept" />
+                </content>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

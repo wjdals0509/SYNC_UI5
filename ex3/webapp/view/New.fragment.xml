@@ -1,0 +1,74 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog id="idNewDialog" icon="sap-icon://add-activity" title="항공편 정보 신규생성">
+        <content>
+            <f:SimpleForm layout="ResponsiveLayout"
+            labelSpanS="4">
+                <core:Title text="항공사 정보" />
+                <Label text="항공사ID" />
+                <Input value="{new>/Carrid}" required="true" maxLength="3" >
+                    <layoutData>
+                        <l:GridData span="S3" />
+                    </layoutData>
+                </Input>
+
+                <Label text="항공편No" />
+                <Input value="{new>/Carrid}" required="true" width="80px" />
+
+                <core:Title text="이동경로" />
+                <Label text="출발국가" />
+                <Input value="{new>/Countryfr}" width="70px"/>
+
+                <Label text="출발도시" />
+                <Input value="{new>/Cityfrom}"  width="150px"/>
+
+                <Label text="출발공항" />
+                <Input value="{new>/Airpfrom}" required="true" width="70px"/>
+
+                <Label text="도착국가" />
+                <Input value="{new>/Countryto}" width="70px"/>
+
+                <Label text="도착도시" />
+                <Input value="{new>/Cityto}"  width="150px"/>
+
+                <Label text="도착공항" />
+                <Input value="{new>/Airpto}" required="true" width="70px"/>
+
+                <core:Title text="시간 및 거리" />
+                <Label text="출발시간" />
+                <Input value="{
+                    path: 'new>/Deptime',
+                    type: 'sap.ui.model.odata.type.Time'
+                }" />
+
+                <Label text="도착시간" />
+                <Input value="{
+                    path: 'new>/Arrtime',
+                    type: 'sap.ui.model.odata.type.Time'
+                }" />
+
+                <Label text="비행거리" />
+                <Input value="{new>/Distance}" />
+                <ComboBox 
+                    id="idComboBox"
+                    items="{view>/Distid}"
+                    selectedKey="{new>/Distid}"
+                >
+                    <items>
+                        <core:Item key="{view>key}" text="{view>/name}" />
+                    </items>
+                    <layoutData>
+                        <l:GridData span="S4" />
+                    </layoutData>
+                </ComboBox>
+            </f:SimpleForm>
+        </content>
+        <beginButton>
+            <Button icon="sap-icon://save" text="저장" press="onSaveConfirm" />
+            <Button icon="sap-icon://cancel" text="취소" press="onSaveCancel" />
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>

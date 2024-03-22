@@ -1,0 +1,61 @@
+<mvc:View controllerName="sync.e21.ex1.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel headerText="사칙연산 계산기 만들기">
+                <f:SimpleForm layout="ResponsiveLayout" >
+                    <core:Title text="숫자 입력" />
+                        <Label text="숫자1" />
+                        <Input value="{
+                            path: '/value1',
+                            type: 'sap.ui.model.type.Float'
+                        }"  
+                            required="true" />
+                        <Label text="숫자2" />
+                        <Input value="{
+                            path: '/value2',
+                            type: 'sap.ui.model.type.Float'
+                        }"  
+                            required="true" />
+                    
+                    <core:Title text="결과 출력"/>
+                        <Label text="덧셈" />
+                        <Text text="{/result1}" />
+                        <Button text="계산" press="onAdd" >
+                            <layoutData>
+                                <l:GridData indent="L8 M8 S8" span="L4 M4 S4" />
+                            </layoutData>
+                        </Button>
+
+                        <Label text="뺄셈" />
+                        <Text text="{/result2}" />
+                        <Button text="계산" press="onSub" >
+                            <layoutData>
+                                <l:GridData indent="L8 M8 S8" span="L4 M4 S4" />
+                            </layoutData>
+                        </Button>
+
+                        <Label text="곱셈" />
+                        <Text text="{/result3}" />
+                        <Button text="계산" press="onMulti" >
+                            <layoutData>
+                                <l:GridData indent="L8 M8 S8" span="L4 M4 S4" />
+                            </layoutData>
+                        </Button>
+
+                        <Label text="나눗셈" />
+                        <Text text="{/result4}" />
+                        <Button text="계산" press="onDiv" >
+                            <layoutData>
+                                <l:GridData indent="L8 M8 S8" span="L4 M4 S4" />
+                            </layoutData>
+                        </Button>
+                </f:SimpleForm>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

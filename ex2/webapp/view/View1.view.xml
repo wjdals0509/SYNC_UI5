@@ -1,0 +1,58 @@
+<mvc:View controllerName="sync.e21.ex2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <!-- <Panel headerText="항공편 정보" height="100%"> -->
+            <Panel headerText="항공편 정보" expandable="true" height="100%">
+                <Table
+                    id="idTable"
+                    items="{/FlightSet}"
+                    mode="SingleSelectMaster"
+                    selectionChange="onSelectionChange">
+                    <columns>
+                        <Column width="5rem" hAlign="Center"><Label text="항공사ID" /></Column>
+                        <Column width="5rem" hAlign="Center"><Label text="항공편No" /></Column>
+                        <Column hAlign="Left"><Label text="비행일자" /></Column>
+                        <Column hAlign="Right"><Label text="운임금액" /></Column>
+                        <Column hAlign="Left"><Label text="비행기" /></Column>
+                        <Column hAlign="Right"><Label text="최대좌석수" /></Column>
+                        <Column hAlign="Right"><Label text="예약좌석수" /></Column>
+                        <Column hAlign="Right"><Label text="잔여좌석수" /></Column>
+                        <Column hAlign="Right"><Label text="총예약금액" /></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem >
+                            <cells>
+                                <ObjectIdentifier title="{Carrid}" />
+                                <ObjectIdentifier title="{Connid}" />
+                                <ObjectIdentifier title="{
+                                    path: 'Fldate',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        pattern: 'yyyy-MM-dd'
+                                    }
+                                }" />
+                                <ObjectNumber 
+                                    number="{
+                                        parts: [ {path: 'Price'} , {path: 'Currency'} ],
+                                        type: 'sap.ui.model.type.Currency',
+                                        formatOptions: {
+                                            showMeasure: false
+                                        }
+                                    }" unit="{Currency}" />
+                                <Text text="{Planetype}" />
+                                <Text text="{Seatsmax}" />
+                                <Text text="{Seatsocc}" />
+                                <Text text="{=${Seatsmax}-${Seatsocc}}" />
+                                <ObjectNumber 
+                                    number="{=${Price}}"
+                                    unit="{Currency}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

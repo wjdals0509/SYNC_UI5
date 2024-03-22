@@ -1,0 +1,64 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog id="idDialog" icon="sap-icon://flight" title="비행스케쥴 조회 E21">
+        <content>
+            <l:VerticalLayout >
+                <f:SimpleForm >
+                    <f:content>
+                        <l:HorizontalLayout >
+                            <Label text="항공사: " width="100px" textAlign="Right" />
+                            <Text text="{Carrid}"/>
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="항공편번호: " width="100px" textAlign="Right"/>
+                            <Text text="{Connid}"/>
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="출발지: " width="100px" textAlign="Right"/>
+                            <Text text="{Airpfrom}, {Cityfrom}, {Countryfrom}"/>
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="도착지: " width="100px" textAlign="Right"/>
+                            <Text text="{Airpto}, {Cityto}, {Countryto}"/>
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="비행시간: " width="100px" textAlign="Right"/>
+                            <Text text="{Fltime}"/>
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="출발시간: " width="100px" textAlign="Right"/>
+                            <Text text="{
+                                path: 'Deptime',
+                                type: 'sap.ui.model.odata.type.Time',
+                                formatOptions: {
+                                    pattern: 'hh:mm:ss'
+                                }
+                            }" />
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="도착시간: " width="100px" textAlign="Right"/>
+                            <Text text="{
+                                path: 'Arrtime',
+                                type: 'sap.ui.model.odata.type.Time',
+                                formatOptions: {
+                                    pattern: 'hh:mm:ss'
+                                }
+                            }" />
+                        </l:HorizontalLayout>
+                        <l:HorizontalLayout >
+                            <Label text="비행거리: " width="100px" textAlign="Right"/>
+                            <Text text="{Distance}"/>
+                            <Text text="{Distid}"/>
+                        </l:HorizontalLayout>
+                    </f:content>
+                </f:SimpleForm>
+            </l:VerticalLayout>
+        </content>
+        <beginButton>
+            <Button text="닫기" press="onClosePress" />
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>
