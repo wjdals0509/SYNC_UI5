@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog id="idDialog">
+        <customHeader>
+            <Toolbar >
+                <core:Icon src="sap-icon://create" />
+                <Title text="항공편 정보 신규생성" />
+            </Toolbar>
+        </customHeader>
+        <content>
+
+        </content>
+        <buttons>
+            <Button text="닫기" press="onClose" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
