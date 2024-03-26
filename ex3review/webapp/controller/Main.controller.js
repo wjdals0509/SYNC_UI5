@@ -77,6 +77,57 @@ sap.ui.define([
                             sap.m.MessageBox.error("생성 중 오류가 발생했습니다.");
                     }}
                 );
+            },
+            
+            onDelete: function () {
+                //sap.m.MessageToast.show("삭제 버튼을 눌렀습니다.");
+
+                let oView = this.getView();
+                let oTable = oView.byId("idTable");
+
+                // 선택된 행에 대한 인덱스 정보를
+                // 배열로 전달한다.
+                let aIndex =  oTable.getSelectedIndices();
+
+                // aIndex가 존재하지 않거나 한줄도 없을 때
+                if ( !aIndex || aIndex.length == 0) {
+                    // 이런 경우에는 다음과 같이 메세지를 출력하고 로직을 중단
+                    sap.m.MessageBox.information("삭제할 데이터가 선택되지 않았습니다.");
+                } else {
+                    // 한 줄이라도 선택이 되어있다면
+                    sap.m.MessageBox.confirm(
+                        "삭제할 데이터는 " + aIndex.length + "개 입니다. \n삭제하시겠습니까?",
+                        {
+                            onClose: function ( oAction ) {
+                                if ( oAction == sap.m.MessageBox.Action.OK){
+                                    // 진행
+                                    sap.m.MessageBox.show("삭제를 진행합니다.");
+                                    
+                                    let oModel = oView.getModel();
+                                    
+                                    // LOOP AT aIndex INTO vIndex라고 쓴것과 같다
+                                    for (const vIndex of aIndex){
+                                        let oContext = oTable.getContextByIndex(vIndex);
+                                        let path = oContext.getPath();
+                                        //sap.m.MessageBox.show(path);
+                                        
+                                        // // 경로: /ConnectionSet(Carrid='AA',Connid='0017')
+                                        // // 결과 => 항공편 AA, 0017인 데이터를 찾아서 삭제한다.
+                                        // oModel.remove(경로, 결과처리)
+                                        oModel.remove(path, {});
+                                    }
+
+                                    // 테이블의 전체 선택 해제
+                                    oTable.clearSelection();
+                                    
+                                } else {
+                                    // 취소
+                                    sap.m.MessageBox.show("삭제를 취소합니다.");
+                                }
+                            }
+                        }
+                    )
+                }
             }
         });
     });
