@@ -17,7 +17,7 @@
                     <!-- 항공사 정보 -->
                     <c:Title text="{i18n>labelAirlineInfo}" />
                     <Label text="{i18n>labelCarrid}"/>
-                    <Input value="{new>/Data/Carrid}" maxLength="3" width="3rem" />
+                    <Input value="{new>/Data/Carrid}" maxLength="3" width="3rem" required="true"/>
                         
                     <Label text="{i18n>labelConnid}"/>
                     <!-- Connid는 String 타입인 number이다(숫자밖에 못적음) -->
@@ -32,6 +32,7 @@
                         }" 
                         width="4rem"
                         type="Number"
+                        required="true"
                     />
 
                     <!-- 이동경로 -->
@@ -59,21 +60,26 @@
                     <c:Title text="{i18n>labelTimeDistance}" />
                     <Label text="{i18n>labelDeptime}" />
                     <TimePicker 
-                        value="{new>/Data/Deptime}"
-                        valueFormat="HH:mm:ss"
+                        value="{
+                            path: 'new>/Data/Deptime',
+                            type: 'sap.ui.model.odata.type.Time'
+                        }"
                         width="8rem" 
                     />
 
                     <Label text="{i18n>labelArrtime}" />
                     <TimePicker 
-                        value="{new>/Data/Deptime}"
+                        value="{new>/Data/Arrtime}"
                         valueFormat="HH:mm:ss"
                         width="8rem" 
                     />
 
                     <Label text="거리단위" />
                     <Input 
-                        value="{new>/Data/Distance}" 
+                        value="{
+                            path: 'new>/Data/Distance',
+                            type: 'sap.ui.model.odata.type.Decimal'
+                        }" 
                     />
                     <ComboBox selectedKey="{new>/Data/Distid}" 
                         items="{new>/DistanceUnit}"

@@ -13,13 +13,13 @@ sap.ui.define([
                     Data: {
                         Carrid: "",
                         Connid: "0000",
-                        Coutnryfr: "",
+                        Countryfr: "",
                         Cityfrom: "",
                         Airpfrom: "",
                         Countryto: "",
                         Cityto: "",
                         Airpto: "",
-                        Distance: 0,
+                        Distance: "0",
                         Distid: "KM"    // 기본값
                     },
                     DistanceUnit: [
@@ -70,7 +70,7 @@ sap.ui.define([
                     newData,
                     { 
                         success: function ( oData, oResponse ) {
-                            sap.m.MessageBox.success( oData.Carrid + "," + oData.Connid + "가 생성되었습니다.");
+                            sap.m.MessageBox.success( oData.Carrid + ", " + oData.Connid + "가 생성되었습니다.");
                         }, 
                         error: function ( oError ) {
                             console.log(oError);
