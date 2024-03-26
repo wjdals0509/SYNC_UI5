@@ -20,10 +20,11 @@
                     <Input value="{new>/Data/Carrid}" maxLength="3" width="3rem" />
                         
                     <Label text="{i18n>labelConnid}"/>
+                    <!-- Connid는 String 타입인 number이다(숫자밖에 못적음) -->
                     <Input 
                         value="{
                             path:'new>/Data/Connid', 
-                            type:'sap.ui.model.type.Integer',
+                            type:'sap.ui.model.type.String',
                             constraints: { 
                                 minimum: 1,
                                 maximum: 9999
@@ -35,51 +36,58 @@
 
                     <!-- 이동경로 -->
                     <c:Title text="{i18n>labelRoute}" />
-                    <Label text="출발국가" />
+                    <Label text="{i18n>labelCountryfr}" />
                     <Input value="{new>/Data/Countryfr}" maxLength="2" width="2rem" />
-                    <Label text="도착국가" />
-                    <Input value="{new>/Data/Countryto}" maxLength="2" width="2rem" />
 
+                    <Label text="{i18n>labelCityfrom}" />
+                    <Input value="{new>/Data/Cityfrom}" maxLength="20" width="20rem" />
+                    
+                    <Label text="{i18n>labelAirpfrom}" />
+                    <Input value="{new>/Data/Airpfrom}" maxLength="3" width="3rem" required="true" />
+                    
+                    <Label text="{i18n>labelCountryto}" />
+                    <Input value="{new>/Data/Countryto}" maxLength="2" width="2rem" />
+                    
+                    <Label text="{i18n>labelCityto}" />
+                    <Input value="{new>/Data/Cityto}" maxLength="20" width="20rem" />
+        
+                    <Label text="{i18n>labelAirpto}" />
+                    <Input value="{new>/Data/Airpto}" maxLength="3" width="3rem" required="true" />
+                            
+        
                     <!-- 시간 및 거리 -->
                     <c:Title text="{i18n>labelTimeDistance}" />
-                    <Label text="출발시간" />
+                    <Label text="{i18n>labelDeptime}" />
                     <TimePicker 
-                        value="{
-                            path: 'new>/Data/Deptime',
-                            type: 'sap.ui.model.odata.type.Time'
-                        }" 
-                    />
-                    <TimePicker 
-                        value="{
-                            path: 'new>/Data/Deptime',
-                            type: 'sap.ui.model.odata.type.Time'
-                        }" 
+                        value="{new>/Data/Deptime}"
+                        valueFormat="HH:mm:ss"
+                        width="8rem" 
                     />
 
-                    <Label text="도착시간" />
+                    <Label text="{i18n>labelArrtime}" />
                     <TimePicker 
-                        value="{new>/Data/Arrtime}"
+                        value="{new>/Data/Deptime}"
                         valueFormat="HH:mm:ss"
-                    />
-                    <TimePicker 
-                        value="{new>/Data/Arrtime}"
-                        valueFormat="HH:mm:ss"
+                        width="8rem" 
                     />
 
                     <Label text="거리단위" />
+                    <Input 
+                        value="{new>/Data/Distance}" 
+                    />
                     <ComboBox selectedKey="{new>/Data/Distid}" 
-                        items="{new>/DistanceUnit}"    
+                        items="{new>/DistanceUnit}"
+                        maxWidth="7rem"    
                     >
                         <items>
                             <c:Item key="{new>key}" text="{new>name}" />
                         </items>
                     </ComboBox>
-
-
                 </f:content>
             </f:SimpleForm>
         </content>
         <buttons>
+            <Button text="저장" press="onSave" />
             <Button text="닫기" press="onClose" />
         </buttons>
     </Dialog>
