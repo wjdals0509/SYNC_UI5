@@ -34,8 +34,11 @@
                                 <cm:content>
                                     <!-- 이 안에 차트를 그려줄 예정  -->
                                     <viz:Popover id="idPopOver"></viz:Popover>
+                                    <!-- <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                                        height='500px' width="100%" vizType='bar'> -->
                                     <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
-                                        height='500px' width="100%" vizType='bar'>
+                                        height='500px' width="100%" vizType='column'>
+
                                         <!-- 1. dataset 설정 -->
                                         <viz:dataset>
                                             <viz.data:FlattenedDataset data="{/FlightSumSet}">
@@ -91,7 +94,7 @@
                                         <items>
                                             <ColumnListItem >
                                                 <ObjectIdentifier title="{Carrid}" text="{Connid}" />
-                                                <ObjectNumber number="{Seatsmax}" unit="석" />
+                                                <ObjectNumber number="{path: 'Seatsmax', type: 'sap.ui.model.odata.type.Integer'}" unit="석" />
                                                 <ObjectNumber number="{Seatsocc}" unit="석" />
                                             </ColumnListItem>
                                         </items>
