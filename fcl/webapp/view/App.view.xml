@@ -6,18 +6,20 @@
     height="100%">
     
     <!-- <App id="app"> -->
-        <f:FlexibleColumnLayout 
+        <f:FlexibleColumnLayout
             id="idFlexibleColumnLayout"
+            stateChange=".onStateChanged"
             backgroundDesign="Solid"
-        >
-            <f:beginColumnPages>
+            layout="{comp>/layout}"/>
+            <!-- 모델 comp의 경로 /layout 에 담긴 정보가 "OneColumn" 이냐 "TwoColumnMidExpanded" 냐에 따라
+                 화면 구조가 달라진다. -->
+
+            <!-- <f:beginColumnPages>
                 <mvc:XMLView id="beginView" viewName="sync.eb.fcl.view.Master"/>
             </f:beginColumnPages>
 
             <f:midColumnPages>
                 <mvc:XMLView id="detailView" viewName="sync.eb.fcl.view.Detail"/>
-            </f:midColumnPages>
-
-        </f:FlexibleColumnLayout>
+            </f:midColumnPages>-->
     <!-- </App> -->
 </mvc:View>
