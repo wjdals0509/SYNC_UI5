@@ -14,11 +14,12 @@ sap.ui.define([
 			this.oRouter.getRoute("detail").attachPatternMatched(this._onCarrierMatched, this);
 		},
 
-		_onProductMatched: function (oEvent) {
-			this._carrid = oEvent.getParameter("arguments").carrid || this._carrid || "0";
-			this.getView().bindElement({
-				path: "/CarrierSet(" + this._carrid + ")"
-			});
+		_onCarrierMatched: function (oEvent) {
+			this._carrid = oEvent.getParameter("arguments").carrid || this._carrid || "";
+			
+            // this._carrid = AA
+            // /CarrierSet(' + this._carrid + ') => /CarrierSet('AA')
+            this.getView().bindElement("/CarrierSet('" + this._carrid + "')");
 		},
 
 		onEditToggleButtonPress: function() {
