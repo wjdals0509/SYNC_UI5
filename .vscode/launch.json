@@ -1571,6 +1571,752 @@
             "env": {
                 "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
             }
+        },
+        {
+            "name": "Start zebfi010",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/zebfi010",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#syncebzebfi010-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start zebfi010 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/zebfi010",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#syncebzebfi010-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start zebfi010 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/zebfi010",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#syncebzebfi010-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start zebfi010",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/zebfi010",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#synczebzebfi010-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start zebfi010 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/zebfi010",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebzebfi010-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start zebfi010 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/zebfi010",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebzebfi010-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project1",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/project1",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#synczebproject1-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project1 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project1",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject1-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project2",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/project2",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#synczebproject2-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project2 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project2",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject2-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project1",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/project1",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#synczebproject1-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project1 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project1",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject1-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project1 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project1",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject1-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project2",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/project2",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#synczebproject2-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project2 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project2",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject2-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project2 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project2",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject2-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project3",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/project3",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#synczebproject3-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project3 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project3",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject3-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project3 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project3",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject3-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project4",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/project4",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#synvzebproject4-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project4 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project4",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#synvzebproject4-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project4 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project4",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#synvzebproject4-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project1",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/project1",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#synczebproject1-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project1 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project1",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject1-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project1 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project1",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject1-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project1",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/project1",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#synczebproject1-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project1 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project1",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject1-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
+        },
+        {
+            "name": "Start project1 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/project1",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#synczebproject1-display"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-client=100&sap-ui-xx-viewCache=false"
+            }
         }
     ],
     "compounds": []
