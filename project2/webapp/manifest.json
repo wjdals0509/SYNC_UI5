@@ -44,6 +44,13 @@
     }
   },
   "sap.ui5": {
+    "rootView": {
+      "viewName": "sync.zeb.project2.view.App",
+      "type": "XML",
+      "async": false,
+      "id": "fcl"
+    },
+
     "flexEnabled": true,
     "dependencies": {
       "minUI5Version": "1.71.68",
@@ -55,7 +62,8 @@
         "sap.ui.comp": {},
         "sap.ui.generic.app": {},
         "sap.ui.table": {},
-        "sap.ushell": {}
+        "sap.ushell": {},
+        "sap.uxap": {}
       }
     },
     "contentDensities": {
@@ -84,38 +92,43 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
+        "routerClass": "sap.f.routing.Router",
         "viewType": "XML",
-        "async": true,
         "viewPath": "sync.zeb.project2.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
+        "controlId": "idFlexibleColumnLayout",
+				"transition": "slide",
+				"bypassed": {
+				},
+				"async": true
       },
       "routes": [
         {
-          "name": "RouteMaster",
-          "pattern": ":?query:",
-          "target": [
-            "TargetMaster"
-          ]
-        }
+					"pattern": ":layout:",
+					"name": "master",
+					"target": [
+						"master",
+						"detail"
+					]
+				},
+        {
+					"pattern": "detail/{bukrs}/{saknr}/{layout}",
+					"name": "detail",
+					"target": [
+						"master",
+						"detail"
+					]
+				}
       ],
       "targets": {
-        "TargetMaster": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "Master",
-          "viewName": "Master"
-        }
-      }
-    },
-    "rootView": {
-      "viewName": "sync.zeb.project2.view.App",
-      "type": "XML",
-      "async": true,
-      "id": "App"
+				"master": {
+					"viewName": "Master",
+					"controlAggregation": "beginColumnPages"
+				},
+				"detail": {
+					"viewName": "Detail",
+					"controlAggregation": "midColumnPages"
+				}
+			}
     }
   }
 }
