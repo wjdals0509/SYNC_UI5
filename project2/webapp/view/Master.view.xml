@@ -1,0 +1,41 @@
+<mvc:View controllerName="sync.zeb.project2.controller.Master"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f">
+    <f:DynamicPage id="idDynamicPage" toggleHeaderOnTitleClick="false">
+        <f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="{i18n>title}"/>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+        <f:content>
+            <VBox fitContainer="true">
+                <OverflowToolbar class="sapFDynamicPageAlignContent">
+					<ToolbarSpacer/>
+					<SearchField search=".onSearch" width="17.5rem"/>
+				</OverflowToolbar>
+                <Table 
+                    id="idSakTable"
+                    items="{/SakSet}"
+                    class="sapFDynamicPageAlignContent"
+					width="auto"
+                >
+                    <columns>
+                        <Column ><Text text="{i18n>labelBukrs}" /></Column>
+                        <Column ><Text text="{i18n>labelSaknr}" /></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Navigation" press=".onListItemPress">
+							<cells>
+								<ObjectIdentifier title="{Bukrs}" />
+                                <ObjectIdentifier title="{Saknr}" text="{Schlw}" />
+							</cells>
+						</ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

@@ -6,57 +6,59 @@
     xmlns:viz.data="sap.viz.ui5.data"
     xmlns:chart="sap.suite.ui.commons"
     xmlns:layout="sap.ui.layout"
+    height="100%"
     >
-    <Page title="손익계산서">
+    <Page id="page" title="손익계산서">
         <content>
             <layout:FixFlex 
                 id="idFixFlex" 
                 minFlexSize="250">
                 <layout:fixContent>
                         <chart:ChartContainer id="chartContainer" showFullScreen="true">
-                            <chart:content>
+                        <chart:content>
                                 <chart:ChartContainerContent >
-                                    <chart:content>
-                                        <viz:Popover id="idPopOver" />
-                                        <viz:VizFrame 
-                                            id="oVizFrame" 
-                                            busy="false" 
-                                            busyIndicatorDelay="1000" 
-                                            visible="true" 
-                                            uiConfig="{ 'applicationSet': 'fiori' }" 
-                                            vizType="donut" 
-                                            legendVisible="true" 
-                                            vizProperties="{ 
-                                                'dataLabel': {
-                                                    visible: 'true'
-                                                },
-                                                'plotArea': {
-                                                    drawingEffect: 'glossy'
-                                                },
-                                                'title': { 
-                                                    'visible': 'true', 
-                                                    'text': '2024년 1월 1일부터 2024년 12월 31일까지' 
-                                                }}"
-                                            >
-                                            <viz:dataset>
+                                <chart:content>
+                                    <viz:Popover id="idPopOver" />
+                                    <viz:VizFrame 
+                                        id="idVizFrame" 
+                                        busy="false" 
+                                        busyIndicatorDelay="1000"
+                                        visible="true" 
+                                        uiConfig="{ 'applicationSet': 'fiori' }" 
+                                        vizType="donut" 
+                                        legendVisible="true" 
+                                        vizProperties="{ 
+                                            'dataLabel': {
+                                                visible: 'true'
+                                            },
+                                            'plotArea': {
+                                                drawingEffect: 'glossy'
+                                            },
+                                            'title': { 
+                                                'visible': 'true', 
+                                                'text': '2024년 1월 1일부터 2024년 12월 31일까지' 
+                                            }}"
+                                        >
+                                        <viz:dataset>
                                                 <viz.data:FlattenedDataset data="{/book}">
-                                                    <viz.data:dimensions>
+                                                <viz.data:dimensions>
                                                         <viz.data:DimensionDefinition name="Item Category" value="{Item Category}" />
-                                                    </viz.data:dimensions>
-                                                    <viz.data:measures>
+                                                </viz.data:dimensions>
+
+                                                <viz.data:measures>
                                                         <viz.data:MeasureDefinition group="1" name="Revenue" value="{Revenue}" />
-                                                    </viz.data:measures>
-                                                </viz.data:FlattenedDataset>
-                                            </viz:dataset>
-                                            <viz:feeds>
+                                                </viz.data:measures>
+                                            </viz.data:FlattenedDataset>
+                                        </viz:dataset>
+                                        <viz:feeds>
                                                 <viz.feeds:FeedItem id="value1" uid="size" type="Measure" values="Revenue" />
                                                 <viz.feeds:FeedItem uid="color" type="Dimension" values="Item Category" />
-                                            </viz:feeds>
-                                        </viz:VizFrame>
-                                    </chart:content>
-                                </chart:ChartContainerContent>
-                            </chart:content>
-                        </chart:ChartContainer>
+                                        </viz:feeds>
+                                    </viz:VizFrame>
+                                </chart:content>
+                            </chart:ChartContainerContent>
+                        </chart:content>
+                    </chart:ChartContainer>
                 </layout:fixContent>
             </layout:FixFlex>   
         </content>
