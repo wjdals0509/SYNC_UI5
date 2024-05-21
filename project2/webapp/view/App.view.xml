@@ -16,5 +16,8 @@
         <f:midColumnPages>
 			<mvc:XMLView id="detailView" viewName="sync.zeb.project2.view.Detail"/>
 		</f:midColumnPages>
+        <!-- <f:endColumnPages>
+            <mvc:XMLView id="endView" viewName="sync.zeb.project2.view.DetailDetail"/>
+        </f:endColumnPages> -->
     </f:FlexibleColumnLayout>
 </mvc:View>

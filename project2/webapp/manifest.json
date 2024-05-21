@@ -117,7 +117,16 @@
 						"master",
 						"detail"
 					]
-				}
+				},
+        {
+          "pattern": "detail/{bukrs}/{saknr}/{shkzg}/{layout}",
+          "name": "detailDetail",
+          "target": [
+						"master",
+						"detail",
+            "detailDetail"
+					]
+        }
       ],
       "targets": {
 				"master": {
@@ -127,7 +136,11 @@
 				"detail": {
 					"viewName": "Detail",
 					"controlAggregation": "midColumnPages"
-				}
+				},
+        "detailDetail": {
+            "viewName": "DetailDetail",
+            "controlAggregation": "endColumnPages"
+        }
 			}
     }
   }

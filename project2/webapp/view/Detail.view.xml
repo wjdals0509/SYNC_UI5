@@ -84,7 +84,7 @@
                                     </m:Column>
 								</m:columns>
 								<m:items>
-									<m:ColumnListItem type="Navigation">
+									<m:ColumnListItem type="Navigation" press=".onToConnectionTableItemPress">
 										<m:cells>
 											<m:ObjectIdentifier title="{Bukrs}"  />
 											<m:ObjectIdentifier title="{Saknr}"  />

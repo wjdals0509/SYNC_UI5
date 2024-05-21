@@ -1,0 +1,17 @@
+<!-- <mvc:View
+	controllerName="sync.zeb.project2.controller.DetailDetail"
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	xmlns:f="sap.f"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc">
+    <f:DynamicPage >
+        <f:title>
+            <f:DynamicPageTitle >
+                <f:heading>
+					<Title text="세번째페이지"/>
+				</f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+    </f:DynamicPage>
+</mvc:View> -->

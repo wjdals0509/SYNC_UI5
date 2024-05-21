@@ -17,7 +17,14 @@ sap.ui.define([
                 // this.oSakTable = this.oView.byId("idSakTable");
                 this.oRouter = this.getOwnerComponent().getRouter();
             },
-
+            onFilterSearch: function (oEvent) {
+                var oSmartFilterBar = this.byId("smartFilterBar"),
+                    oTable = this.byId("idSakTable"),
+                    oBinding = oTable.getBinding("items"),
+                    aFilters = oSmartFilterBar.getFilters();
+    
+                oBinding.filter(aFilters, "Application");
+            },
             onSearch: function (oEvent) {
                 var aFilter = [],
                     sQuery = oEvent.getParameter("query");
@@ -42,6 +49,17 @@ sap.ui.define([
                 // }), "Application");
             },
 
+            // onSort: function ( oEvent ) {
+            //     // sort 정보를 역으로바꾸기 위해 !를 사용
+            //     // 내림차순 -> 오름차순으로 바꾸고
+            //     // 오름차순 -> 내림차순으로 바꾸기 위해 true <=> false로 전환
+            //     this._bDescendingSort = !this._bDescendingSort;
+            //     var oBinding = this.oView.byId("idSakTable").getBinding("items"),
+            //         oSorter = new Sorter("Saknr", this._bDescendingSort);
+    
+            //     oBinding.sort(oSorter);
+            // },
+
             onListItemPress: function ( oEvent ) {
                 var oItem = oEvent.getSource(),
                 oCtx = oItem.getBindingContext(),
@@ -52,7 +70,9 @@ sap.ui.define([
                     layout: fioriLibrary.LayoutType.TwoColumnsMidExpanded,
                     bukrs: sBukrs,
                     saknr: sSaknr
+                    
                 });
+                
                 // var oItem = oEvent.getSource(),
                 // oCtx = oItem.getBindingContext(),
                 // sBukrs = oCtx.getProperty("Burks"),
