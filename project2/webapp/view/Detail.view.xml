@@ -20,11 +20,11 @@
                 <snappedHeading>
 					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
 						<m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
-							<f:Avatar
+							<!-- <f:Avatar
 								src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgBAMAAAAQtmoLAAAAIVBMVEUAAAD///+QkJBhYWFSUlItLS3j4+O8vLxKSkr09PR9fX3vnz0hAAAA0UlEQVRYw+3WsQ7BUBSA4Ru0TWyXuMXEG5BiJhZjxWRr4wV4A4MXMNh5U/RWmPT8c8+/nJykX3K73FxjNE3T6t0ueTcrt6DYkvkfMLZFZ7+1/NapBhkFMQV2QsGNgpgCe6egR4GjwI4o6FPgKLBHCroUDFIIXmeCYEiBTSnI5CD3H8rBwo+LGGz8OIjB0k8nB+Hvz0tAQIF5UBBREFwhMFMKIgpMTsGKggYF3zNJwZaCNgXmRMGegiYFnzPJQUiB4NbwT4ckLdd15dNB0zStDj0B379JDVnibr4AAAAASUVORK5CYII="
 								displaySize="S"
 								displayShape="Square"
-								class="sapUiTinyMarginEnd"/>
+								class="sapUiTinyMarginEnd"/> -->
 							<m:Title text="{Schlw}" wrapping="true"/>
 						</m:FlexBox>
 					</m:FlexBox>
@@ -71,7 +71,8 @@
 						<blocks>
 							<m:Table
 								id="idConnectionTable"
-								items="{toConnection}">
+								items="{toConnection}"
+								>
 								<m:columns>
 									<m:Column> <m:Text text="{i18n>labelBukrs}"/>
                                     </m:Column>

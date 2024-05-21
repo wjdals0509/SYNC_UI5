@@ -28,12 +28,12 @@
                 <End Type="YE21_GW004_SRV.Connection" Multiplicity="*" Role="ToRole_Asso_Sak_Connection"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Asso_Sak_Connection">
-                        <PropertyRef Name="Bukrs"/>
                         <PropertyRef Name="Saknr"/>
+                        <PropertyRef Name="Bukrs"/>
                     </Principal>
                     <Dependent Role="ToRole_Asso_Sak_Connection">
-                        <PropertyRef Name="Bukrs"/>
                         <PropertyRef Name="Saknr"/>
+                        <PropertyRef Name="Bukrs"/>
                     </Dependent>
                 </ReferentialConstraint>
             </Association>

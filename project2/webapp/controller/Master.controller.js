@@ -26,8 +26,20 @@ sap.ui.define([
                     var oFilter = new Filter("Schlw", FilterOperator.Contains, sQuery);
                     aFilter.push(oFilter);
                 }
-
                 this.oView.byId("idSakTable").getBinding("items").filter(aFilter, "Application");
+
+                // if (sQuery && sQuery.length > 0) {
+                //     var aQueries = sQuery.split(" "); // 스페이스로 구분된 여러 조건
+                //     aQueries.forEach(function(query) {
+                //         aFilter.push(new Filter("Schlw", FilterOperator.Contains, query));
+                //         aFilter.push(new Filter("Saknr", FilterOperator.Contains, query));
+                //     });
+                // }
+
+                // this.oView.byId("idSakTable").getBinding("items").filter(new Filter({
+                //     filters: aFilter,
+                //     and: false
+                // }), "Application");
             },
 
             onListItemPress: function ( oEvent ) {
