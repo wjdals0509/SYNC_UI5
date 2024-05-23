@@ -10,7 +10,7 @@ sap.ui.define([
      */
     function (Controller, Filter, FilterOperator, fioriLibrary, Fragment) {
         "use strict";
-
+        
         return Controller.extend("sync.zeb.project2.controller.Master", {
             onInit: function () {
                 this.oView = this.getView();
@@ -47,7 +47,7 @@ sap.ui.define([
                 sSaknr = oCtx.getProperty("Saknr");
 
                 this.oRouter.navTo("detail", {
-                    layout: fioriLibrary.LayoutType.TwoColumnsMidExpanded,
+                    layout: fioriLibrary.LayoutType.TwoColumnsBeginExpanded,
                     bukrs: sBukrs,
                     saknr: sSaknr
                     
@@ -101,6 +101,19 @@ sap.ui.define([
     
                 if (oSelectedItem) {
                     oInput.setValue(oSelectedItem.getTitle());
+                    
+                    // 선택한 값을 검색 조건으로 사용
+                    var sSelectedKey = oSelectedItem.getTitle();
+                    var oFilter = new Filter({
+                        filters: [
+                            new Filter("Saknr", FilterOperator.Contains, sSelectedKey)
+                        ]
+                    });
+
+                    // 테이블 필터링
+                    var oTable = this.oView.byId("idSakTable");
+                    var oBinding = oTable.getBinding("items");
+                    oBinding.filter([oFilter]);
                 }
     
                 if (!oSelectedItem) {

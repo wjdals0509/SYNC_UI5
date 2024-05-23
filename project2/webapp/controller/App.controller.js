@@ -20,7 +20,7 @@ sap.ui.define(
           this.currentRouteName = sRouteName;
           this.currentBukrs = oArguments.bukrs;
           this.currentSaknr = oArguments.saknr;
-          // this.currentShkzg = oArguments.shkzg;
+          this.currentShkzg = oArguments.shkzg;
         },
 
         onStateChanged: function (oEvent) {
@@ -34,7 +34,7 @@ sap.ui.define(
                 layout: sLayout, 
                 bukrs: this.currentBukrs,
                 saknr: this.currentSaknr,
-                // shkzg: this.currentShkzg
+                shkzg: this.currentShkzg
               }, 
               true);
           }

@@ -74,19 +74,20 @@
 								items="{toConnection}"
 								>
 								<m:columns>
-									<m:Column> <m:Text text="{i18n>labelBukrs}"/>
+									<!-- <m:Column hAlign="Center"> <m:Text text="{i18n>labelBukrs}"/>
+                                    </m:Column> -->
+									<m:Column width="6em" hAlign="Center"> <m:Text text="{i18n>labelSaknr}"/>
                                     </m:Column>
-									<m:Column> <m:Text text="{i18n>labelSaknr}"/>
+									<m:Column width="4em" hAlign="Center"> <m:Text text="{i18n>labelShkzg}"/>
                                     </m:Column>
-									<m:Column> <m:Text text="{i18n>labelShkzg}"/>
-                                    </m:Column>
-									<m:Column> <m:Text text="{i18n>labeldDmbtr}"/>
+									<m:Column hAlign="Right"> <m:Text text="{i18n>labeldDmbtr}"/>
                                     </m:Column>
 								</m:columns>
 								<m:items>
 									<m:ColumnListItem type="Navigation" press=".onToConnectionTableItemPress">
+									<!-- <m:ColumnListItem type="Navigation" > -->
 										<m:cells>
-											<m:ObjectIdentifier title="{Bukrs}"  />
+											<!-- <m:ObjectIdentifier title="{Bukrs}"  /> -->
 											<m:ObjectIdentifier title="{Saknr}"  />
                                             <m:ObjectAttribute text="{Shkzg}" />
                                             <m:ObjectNumber 

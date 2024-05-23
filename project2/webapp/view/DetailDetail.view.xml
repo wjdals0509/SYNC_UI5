@@ -1,17 +1,62 @@
-<!-- <mvc:View
+<mvc:View xmlns:table="sap.ui.table"
 	controllerName="sync.zeb.project2.controller.DetailDetail"
 	xmlns="sap.uxap"
 	xmlns:m="sap.m"
 	xmlns:f="sap.f"
 	xmlns:form="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
-    <f:DynamicPage >
+    <f:DynamicPage toggleHeaderOnTitleClick="false">
         <f:title>
             <f:DynamicPageTitle >
                 <f:heading>
-					<Title text="세번째페이지"/>
+					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+						<m:Title text="전표 상세목록" wrapping="true" class="sapUiTinyMarginEnd"/>
+					</m:FlexBox>
 				</f:heading>
             </f:DynamicPageTitle>
         </f:title>
+		<f:header>
+
+		</f:header>
+		<f:content>
+			<m:VBox fitContainer="true">
+				<m:Table
+					id="idBsegTable"
+					items="{/BsegSet}"
+                >
+					<m:columns>
+						<!-- <m:Column><m:Text text="{i18n>labelBukrs}"></m:Text></m:Column> -->
+						<m:Column hAlign="Center"><m:Text text="{i18n>labelBelnrD}"></m:Text></m:Column>
+						<m:Column><m:Text text="{i18n>labelSaknr}"></m:Text></m:Column>
+						<!-- <m:Column><m:Text text="{i18n>labelBktxt}"></m:Text></m:Column> -->
+						<m:Column><m:Text text="{i18n>labelShkzg}"></m:Text></m:Column>
+						<!-- <m:Column hAlign="Right"><m:Text text="{i18n>labeldDmbtr}"></m:Text></m:Column> -->
+						<!-- <m:Column hAlign="Right"><m:Text text="{i18n>labeldBudat}"></m:Text></m:Column> -->
+					</m:columns>
+					<m:items>
+						<m:ColumnListItem type="Navigation">
+							<m:cells>
+								<!-- <m:ObjectIdentifier title="{Bukrs}"/> -->
+								<m:ObjectIdentifier title="{BelnrD}"/>
+								<m:ObjectIdentifier title="{Saknr}" text="{Schlw}" />
+								<!-- <m:ObjectAttribute text="{Bktxt}"/> -->
+								<m:ObjectIdentifier title="{Shkzg}"/>
+								<!-- <m:ObjectNumber 
+								number="{
+									parts: [
+									{path: 'Dmbtr'},
+									{path: 'Hwaer'}
+									],
+									type: 'sap.ui.model.type.Currency',
+									formatOptions: {showMeasure: false}
+								}" 
+								unit="{Hwaer}"/> -->
+								<!-- <m:ObjectAttribute text="{Budat}"/> -->
+							</m:cells>
+						</m:ColumnListItem>
+					</m:items>
+				</m:Table>
+			</m:VBox>
+		</f:content>
     </f:DynamicPage>
-</mvc:View> -->
+</mvc:View>

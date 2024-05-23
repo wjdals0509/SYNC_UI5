@@ -49,8 +49,8 @@
 					width="auto"
                 >
                     <columns>
-                        <Column ><Text text="{i18n>labelBukrs}" /></Column>
-                        <Column ><Text text="{i18n>labelSaknr}" /></Column>
+                        <Column width="4em"><Text text="{i18n>labelBukrs}" textAlign="Center"/></Column>
+                        <Column width="20em"><Text text="{i18n>labelSaknr}" /></Column>
                     </columns>
                     <items>
                         <ColumnListItem type="Navigation" press=".onListItemPress">

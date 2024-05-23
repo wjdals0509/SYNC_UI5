@@ -25,23 +25,39 @@
                 <Property Name="Hwaer" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="로컬통화" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
                 <Property Name="Dmbtr" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:unit="Hwaer" sap:label="로컬금액" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
+            <EntityType Name="Bseg" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Saknr"/>
+                    <PropertyRef Name="Shkzg"/>
+                </Key>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="회사코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Saknr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="계정번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Schlw" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="계정명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BelnrD" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="전표번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Shkzg" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="차대지시자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Bktxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="적요" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dmbtr" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:unit="Hwaer" sap:label="로컬금액" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Hwaer" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="로컬통화" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Budat" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="전기일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
             <Association Name="Asso_Sak_Connection" sap:content-version="1">
                 <End Type="YE21_GW004_SRV.Sak" Multiplicity="1" Role="FromRole_Asso_Sak_Connection"/>
                 <End Type="YE21_GW004_SRV.Connection" Multiplicity="*" Role="ToRole_Asso_Sak_Connection"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Asso_Sak_Connection">
-                        <PropertyRef Name="Bukrs"/>
                         <PropertyRef Name="Saknr"/>
+                        <PropertyRef Name="Bukrs"/>
                     </Principal>
                     <Dependent Role="ToRole_Asso_Sak_Connection">
-                        <PropertyRef Name="Bukrs"/>
                         <PropertyRef Name="Saknr"/>
+                        <PropertyRef Name="Bukrs"/>
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
             <EntityContainer Name="YE21_GW004_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="SakSet" EntityType="YE21_GW004_SRV.Sak" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <EntitySet Name="ConnectionSet" EntityType="YE21_GW004_SRV.Connection" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="BsegSet" EntityType="YE21_GW004_SRV.Bseg" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <AssociationSet Name="Asso_Sak_ConnectionSet" Association="YE21_GW004_SRV.Asso_Sak_Connection" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SakSet" Role="FromRole_Asso_Sak_Connection"/>
                     <End EntitySet="ConnectionSet" Role="ToRole_Asso_Sak_Connection"/>

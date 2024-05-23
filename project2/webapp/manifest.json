@@ -119,7 +119,7 @@
 					]
 				},
         {
-          "pattern": "detail/{bukrs}/{saknr}/{shkzg}/{layout}",
+          "pattern": "detail/{bukrs}/{saknr}/detailDetail/{shkzg}/{layout}",
           "name": "detailDetail",
           "target": [
 						"master",

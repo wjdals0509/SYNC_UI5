@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (controller) {
+	"sap/ui/core/mvc/Controller",
+	'sap/f/library',
+], function (controller, fioriLibrary) {
     "use strict";
 
     return controller.extend("sync.zeb.project2.controller.Detail", {
@@ -13,7 +14,7 @@ sap.ui.define([
 
 			this.oRouter.getRoute("master").attachPatternMatched(this._onSaknrMatched, this);
 			this.oRouter.getRoute("detail").attachPatternMatched(this._onSaknrMatched, this);
-			// this.oRouter.getRoute("detailDetail").attachPatternMatched(this._onSaknrMatched, this);
+			this.oRouter.getRoute("detailDetail").attachPatternMatched(this._onSaknrMatched, this);
 		},
 
         _onSaknrMatched: function (oEvent) {
@@ -36,21 +37,21 @@ sap.ui.define([
         onExit: function () {
 			this.oRouter.getRoute("master").detachPatternMatched(this._onSaknrMatched, this);
 			this.oRouter.getRoute("detail").detachPatternMatched(this._onSaknrMatched, this);
+		},
+
+		onToConnectionTableItemPress: function ( oEvent ) {
+			var oItem = oEvent.getSource();
+            var oCtx = oItem.getBindingContext();
+            var sBukrs = oCtx.getProperty("Bukrs");
+            var sSaknr = oCtx.getProperty("Saknr");
+            var sShkzg = oCtx.getProperty("Shkzg");
+
+			this.oRouter.navTo("detailDetail", { // 새로운 뷰로 네비게이션
+				layout: fioriLibrary.LayoutType.ThreeColumnsEndExpanded,
+                bukrs: sBukrs,
+                saknr: sSaknr,
+				   shkzg: sShkzg
+            });
 		}
-
-		// onToConnectionTableItemPress: function ( oEvent ) {
-		// 	var oItem = oEvent.getSource();
-        //     var oCtx = oItem.getBindingContext();
-        //     var sBukrs = oCtx.getProperty("Bukrs");
-        //     var sSaknr = oCtx.getProperty("Saknr");
-        //     var sShkzg = oCtx.getProperty("Shkzg");
-
-		// 	this.oRouter.navTo("detailDetail", { // 새로운 뷰로 네비게이션
-		// 		layout: fioriLibrary.LayoutType.ThreeColumnsEndExpanded,
-        //         bukrs: sBukrs,
-        //         saknr: sSaknr,
-		// 		   shkzg: sShkzg
-        //     });
-		// }
     });
 });
