@@ -24,11 +24,11 @@
             <layout:FixFlex 
                 id="idFixFlex" 
                 minFlexSize="250">
-                <!-- <layout:fixContent>
+                <layout:fixContent>
                     <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="true" headerText="Settings" width="auto">
                         <content>
                             <HBox class='settingsHBox'>
-                            <VBox class='settingsBox'>
+                            <!-- <VBox class='settingsBox'>
                                 <Label text="{/dataset/name}" design="Bold" class='settingsLabel'></Label>
                                 <RadioButtonGroup id='datasetRadioGroup'
                                         buttons="{path: '/dataset/values'}">
@@ -36,9 +36,9 @@
                                         <RadioButton class='settingsRadio' text="{name}" select="onDatasetSelected"/>
                                     </buttons>
                                 </RadioButtonGroup>
-                            </VBox>
+                            </VBox> -->
                             <VBox class='settingsBox'>
-                                <Label text = '{/dataLabel/name}' design="Bold" class='settingsLabel'></Label>
+                                <Label text = '{Anlhtxt}' design="Bold" class='settingsLabel'></Label>
                                 <Switch class='settingsSwitch' state="{/dataLabel/defaultState}" change='onDataLabelChanged'>
                                     <layoutData>
                                         <FlexItemData growFactor="1" />
@@ -73,11 +73,11 @@
                             </HBox>
                         </content>
                     </Panel>
-                </layout:fixContent> -->
+                </layout:fixContent>
                 <layout:fixContent>
                     <chart:ChartContainer id="chartContainer" showFullScreen="true">
                         <chart:content>
-                            <chart:ChartContainerContent >
+                            <chart:ChartContainerContent icon="sap-icon://vertical-stacked-chart" title="Stacked_bar Chart">
                                 <chart:content>
                                     <viz:Popover id="idPopOver" />
                                     <viz:VizFrame 
@@ -87,8 +87,13 @@
                                         vizProperties="{
                                             'title': { 
                                                 'visible': 'true', 
-                                                'text': '감가상각 진행률' 
-                                            }}"
+                                                'text': '감가상각 진행률'
+                                                },
+                                            'dataLabel' :{
+                                                'visible': 'true',
+                                                'showTotal': 'true'
+                                                } 
+                                            }"
                                         >
                                         <viz:dataset>
                                             <viz.data:FlattenedDataset data="{/AnlSet}">
@@ -99,16 +104,57 @@
 
                                                 <viz.data:measures>
                                                     <viz.data:MeasureDefinition name="잔여금액" value="{Remamt}" />
-                                                        <viz.data:MeasureDefinition name="감가상각비" value="{Sumamt}" />
+                                                        <viz.data:MeasureDefinition name="감가상각비 (단위:원)" value="{Sumamt}" />
                                                 </viz.data:measures>
                                             </viz.data:FlattenedDataset>
                                         </viz:dataset>
                                         <viz:feeds>
-                                                <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure" values="잔여금액,감가상각비" />
+                                                <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure" values="잔여금액,감가상각비 (단위:원)" />
                                                 <!-- <viz.feeds:FeedItem id='valueAxisFeed2' uid="valueAxis2" type="Measure" values="잔여금액" /> -->
                                                 <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension" values="고정자산번호,고정자산명" />
                                         </viz:feeds>
                                     </viz:VizFrame>
+                                </chart:content>
+                            </chart:ChartContainerContent>
+                            <chart:ChartContainerContent icon="sap-icon://table-view" title="Table">
+                                <chart:content>
+                                    <Table id="chartContainerContentTable" items="{ path: '/AnlSet' }">
+                                        <columns>
+                                            <Column demandPopin="true">
+                                            <Label design="Bold" text="{i18n>labelAnln1}"/></Column>
+                                            <Column demandPopin="true">
+                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
+                                            <Column demandPopin="true">
+                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
+                                            <Column demandPopin="true">
+                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
+                                            <Column demandPopin="true">
+                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
+                                            <Column demandPopin="true">
+                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
+                                            <Column demandPopin="true">
+                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
+                                            <!-- <Column demandPopin="true">
+                                            <Label design="Bold" text="{i18n>label}"/></Column>
+                                            <Column demandPopin="true">
+                                            <Label design="Bold" text="{i18n>label}"/></Column>
+                                            <Column demandPopin="true">
+                                            <Label design="Bold" text="{i18n>label}"/></Column> -->
+                                        </columns>
+                                        <ColumnListItem press="">
+                                            <Text text="{Anln1}"></Text>
+                                            <Text text="{Anlhtxt}"></Text>
+                                            <Text text="{Amount}"></Text>
+                                            <Text text="{Remamt}"></Text>
+                                            <Text text="{Depmethod}"></Text>
+                                            <Text text="{Fixra}"></Text>
+                                            <Text text="{Acqdate}"></Text>
+                                            <Text text="{Ndjar}"></Text>
+                                            <!-- <Text text="{SAPUI5}"></Text>
+                                            <Text text="{ABAP}"></Text>
+                                            <Text text="{JAVA}"></Text> -->
+                                        </ColumnListItem>
+                                    </Table>
                                 </chart:content>
                             </chart:ChartContainerContent>
                         </chart:content>
