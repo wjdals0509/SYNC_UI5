@@ -8,7 +8,19 @@
     xmlns:layout="sap.ui.layout"
     height="100%"
     >
-    <Page id="page" title="손익계산서">
+    <Page id="page">
+        <customHeader>
+            <Bar
+                design="Auto"
+                titleAlignment="None"
+            >
+                <contentMiddle>
+                    <Image 
+                    src="../img/logo1.png"
+                    height="100%"></Image>
+                </contentMiddle>
+            </Bar>
+        </customHeader>
         <content>
             <layout:FixFlex 
                 id="idFixFlex" 
@@ -25,7 +37,7 @@
                                         busyIndicatorDelay="1000"
                                         visible="true" 
                                         uiConfig="{ 'applicationSet': 'fiori' }" 
-                                        vizType="donut" 
+                                        vizType="stacked_bar" 
                                         legendVisible="true" 
                                         vizProperties="{ 
                                             'dataLabel': {
@@ -36,7 +48,7 @@
                                             },
                                             'title': { 
                                                 'visible': 'true', 
-                                                'text': '2024년 1월 1일부터 2024년 12월 31일까지' 
+                                                'text': '손익계산서' 
                                             }}"
                                         >
                                         <viz:dataset>
