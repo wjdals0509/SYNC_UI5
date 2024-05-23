@@ -1,0 +1,120 @@
+<mvc:View controllerName="sync.zeb.stackedbar.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" 
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:chart="sap.suite.ui.commons"
+    xmlns:layout="sap.ui.layout"
+    height="100%">
+    <Page id="page">
+        <customHeader>
+            <Bar
+                design="Auto"
+                titleAlignment="None"
+            >
+                <contentMiddle>
+                    <Image 
+                    src="../img/logo1.png"
+                    height="100%"></Image>
+                </contentMiddle>
+            </Bar>
+        </customHeader>
+        <content>
+            <layout:FixFlex 
+                id="idFixFlex" 
+                minFlexSize="250">
+                <!-- <layout:fixContent>
+                    <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="true" headerText="Settings" width="auto">
+                        <content>
+                            <HBox class='settingsHBox'>
+                            <VBox class='settingsBox'>
+                                <Label text="{/dataset/name}" design="Bold" class='settingsLabel'></Label>
+                                <RadioButtonGroup id='datasetRadioGroup'
+                                        buttons="{path: '/dataset/values'}">
+                                    <buttons>
+                                        <RadioButton class='settingsRadio' text="{name}" select="onDatasetSelected"/>
+                                    </buttons>
+                                </RadioButtonGroup>
+                            </VBox>
+                            <VBox class='settingsBox'>
+                                <Label text = '{/dataLabel/name}' design="Bold" class='settingsLabel'></Label>
+                                <Switch class='settingsSwitch' state="{/dataLabel/defaultState}" change='onDataLabelChanged'>
+                                    <layoutData>
+                                        <FlexItemData growFactor="1" />
+                                    </layoutData>
+                                </Switch>
+                            </VBox>
+                            <VBox class='settingsBox'>
+                                <Label text = '{/sumLabel/name}' design="Bold" class='settingsLabel'></Label>
+                                <Switch id="sumLabelSwitch" class='settingsSwitch' state="{/sumLabel/defaultState}" change='onSumLabelChanged'>
+                                    <layoutData>
+                                        <FlexItemData growFactor="1" />
+                                    </layoutData>
+                                </Switch>
+                            </VBox>
+                            <VBox class='settingsBox'>
+                                <Label text = '{/axisTitle/name}' design="Bold" class='settingsLabel'></Label>
+                                <Switch class='settingsSwitch' state="{/axisTitle/defaultState}" change='onAxisTitleChanged'>
+                                    <layoutData>
+                                        <FlexItemData growFactor="1" />
+                                    </layoutData>
+                                </Switch>
+                            </VBox>
+                            <VBox class='settingsBox'>
+                                <Label text='{/type/name}' design="Bold" class='settingsLabel'></Label>
+                                <RadioButtonGroup id='typeRadioGroup'
+                                    buttons="{path: '/type/values'}" >
+                                    <buttons>
+                                        <RadioButton class='settingsRadio' text="{name}" select='onTypeSelected'/>
+                                    </buttons>
+                                </RadioButtonGroup>
+                            </VBox>
+                            </HBox>
+                        </content>
+                    </Panel>
+                </layout:fixContent> -->
+                <layout:fixContent>
+                    <chart:ChartContainer id="chartContainer" showFullScreen="true">
+                        <chart:content>
+                            <chart:ChartContainerContent >
+                                <chart:content>
+                                    <viz:Popover id="idPopOver" />
+                                    <viz:VizFrame 
+                                        id="idVizFrame" 
+                                        uiConfig="{ 'applicationSet': 'fiori' }" 
+                                        vizType="stacked_column" 
+                                        vizProperties="{
+                                            'title': { 
+                                                'visible': 'true', 
+                                                'text': '감가상각 진행률' 
+                                            }}"
+                                        >
+                                        <viz:dataset>
+                                            <viz.data:FlattenedDataset data="{/AnlSet}">
+                                                <viz.data:dimensions>
+                                                        <viz.data:DimensionDefinition name="고정자산번호" value="{Anln1}" />
+                                                        <viz.data:DimensionDefinition name="고정자산명" value="{Anlhtxt}" />
+                                                </viz.data:dimensions>
+
+                                                <viz.data:measures>
+                                                    <viz.data:MeasureDefinition name="잔여금액" value="{Remamt}" />
+                                                        <viz.data:MeasureDefinition name="감가상각비" value="{Sumamt}" />
+                                                </viz.data:measures>
+                                            </viz.data:FlattenedDataset>
+                                        </viz:dataset>
+                                        <viz:feeds>
+                                                <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure" values="잔여금액,감가상각비" />
+                                                <!-- <viz.feeds:FeedItem id='valueAxisFeed2' uid="valueAxis2" type="Measure" values="잔여금액" /> -->
+                                                <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension" values="고정자산번호,고정자산명" />
+                                        </viz:feeds>
+                                    </viz:VizFrame>
+                                </chart:content>
+                            </chart:ChartContainerContent>
+                        </chart:content>
+                    </chart:ChartContainer>
+                </layout:fixContent>
+            </layout:FixFlex>   
+        </content>
+    </Page>
+</mvc:View>
