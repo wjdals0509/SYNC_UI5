@@ -46,10 +46,10 @@ sap.ui.define([
         //     var sShkzg = oCtx.getProperty("Shkzg");
 
 		// 	this.oRouter.navTo("detailDetail", { // 새로운 뷰로 네비게이션
-		// 		layout: fioriLibrary.LayoutType.ThreeColumnsMidExpanded,
+		// 		layout: fioriLibrary.LayoutType.ThreeColumnsEndExpanded,
         //         bukrs: sBukrs,
         //         saknr: sSaknr,
-		// 		shkzg: sShkzg
+		// 		   shkzg: sShkzg
         //     });
 		// }
     });

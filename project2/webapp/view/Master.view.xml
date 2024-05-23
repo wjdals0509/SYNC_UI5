@@ -2,34 +2,46 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:f="sap.f"
-    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-    xmlns:smartTable="sap.ui.comp.smarttable">
-    <f:DynamicPage id="idDynamicPage" toggleHeaderOnTitleClick="false">
+    xmlns:layout="sap.ui.layout">
+    <f:DynamicPage id="idDynamicPage" toggleHeaderOnTitleClick="false" fitContent="true">
         <f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="{i18n>title}"/>
-				</f:heading>
+                    <HBox alignItems="Center" justifyContent="SpaceBetween">
+                        <Image src="../img/logo1.png" width="200px"/>
+                        <!-- <Text text="WannaDo" /> -->
+                    </HBox>
+                </f:heading>
 			</f:DynamicPageTitle>
 		</f:title>
+        <f:header>
+            <f:DynamicPageHeader pinnable="true">
+                <f:content>
+                </f:content>
+                <layout:HorizontalLayout allowWrapping="true">
+                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                        <ObjectAttribute title="회사코드" text="1000"/>
+                        <ObjectAttribute title="회계연도" text="2024"/>
+                        <ObjectAttribute title="회계기간" text="2024.01.01~2024.12.31"/>
+                    </layout:VerticalLayout>
+                </layout:HorizontalLayout>
+            </f:DynamicPageHeader>
+        </f:header>
         <f:content>
             <VBox fitContainer="true">
                 <!-- <OverflowToolbar class="sapFDynamicPageAlignContent">
-					<ToolbarSpacer/>
-					<SearchField search=".onSearch" width="17.5rem"/>
                     <OverflowToolbarButton icon="sap-icon://sort" text="Sort" type="Transparent" press=".onSort"/>
                 </OverflowToolbar> -->
-                <smartFilterBar:SmartFilterBar
-                    id="smartFilterBar"
-                    entityType="SakSet"
-                    liveMode="true"
-                    useToolbar="true"
-                    header="true"
-                    smartVariant="true"
-                    persistencyKey="SmartFilterBar_sak"
-                    useDateRangeType="true"
-                    search=".onFilterSearch">
-                </smartFilterBar:SmartFilterBar>
+                <Input
+                    id="sakInput"
+                    type="Text"
+                    value="검색어를 선택하세요"
+                    showValueHelp="true"
+                    valueHelpOnly="true"
+                    valueHelpRequest="handleValueHelp"
+                    class="sapUiSmallMarginBottom"
+                    width="15rem"
+                    />
                 <Table 
                     id="idSakTable"
                     items="{/SakSet}"

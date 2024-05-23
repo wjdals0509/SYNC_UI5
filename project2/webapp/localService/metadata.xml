@@ -16,24 +16,26 @@
                 <Key>
                     <PropertyRef Name="Bukrs"/>
                     <PropertyRef Name="Saknr"/>
+                    <PropertyRef Name="Shkzg"/>
+                    <PropertyRef Name="Hwaer"/>
                 </Key>
                 <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="회사코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Saknr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="계정번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Shkzg" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="차대지시자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Dmbtr" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:unit="Hwaer" sap:label="로컬금액" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Hwaer" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="로컬통화" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Dmbtr" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:unit="Hwaer" sap:label="로컬금액" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <Association Name="Asso_Sak_Connection" sap:content-version="1">
                 <End Type="YE21_GW004_SRV.Sak" Multiplicity="1" Role="FromRole_Asso_Sak_Connection"/>
                 <End Type="YE21_GW004_SRV.Connection" Multiplicity="*" Role="ToRole_Asso_Sak_Connection"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Asso_Sak_Connection">
-                        <PropertyRef Name="Saknr"/>
                         <PropertyRef Name="Bukrs"/>
+                        <PropertyRef Name="Saknr"/>
                     </Principal>
                     <Dependent Role="ToRole_Asso_Sak_Connection">
-                        <PropertyRef Name="Saknr"/>
                         <PropertyRef Name="Bukrs"/>
+                        <PropertyRef Name="Saknr"/>
                     </Dependent>
                 </ReferentialConstraint>
             </Association>

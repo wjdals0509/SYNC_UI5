@@ -1,0 +1,24 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+    <SelectDialog
+        noDataText="No Products Found"
+        title="Select Product"
+        search="handleSearch"
+        confirm="handleValueHelpClose"
+        cancel="handleValueHelpClose"
+        showClearButton="true"
+        items="{
+            path : '/SakSet',
+            sorter : {
+                path : 'Saknr',
+                descending : false
+            }
+        }">
+        <StandardListItem selected="{selected}"
+            title="{Saknr}"
+            description="{Schlw}" 
+            type="Active"/>
+    </SelectDialog>
+</c:FragmentDefinition>

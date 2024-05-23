@@ -2,12 +2,13 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	'sap/f/library'
+	'sap/f/library',
+    'sap/ui/core/Fragment'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Filter, FilterOperator, fioriLibrary) {
+    function (Controller, Filter, FilterOperator, fioriLibrary, Fragment) {
         "use strict";
 
         return Controller.extend("sync.zeb.project2.controller.Master", {
@@ -17,37 +18,16 @@ sap.ui.define([
                 // this.oSakTable = this.oView.byId("idSakTable");
                 this.oRouter = this.getOwnerComponent().getRouter();
             },
-            onFilterSearch: function (oEvent) {
-                var oSmartFilterBar = this.byId("smartFilterBar"),
-                    oTable = this.byId("idSakTable"),
-                    oBinding = oTable.getBinding("items"),
-                    aFilters = oSmartFilterBar.getFilters();
-    
-                oBinding.filter(aFilters, "Application");
-            },
-            onSearch: function (oEvent) {
-                var aFilter = [],
-                    sQuery = oEvent.getParameter("query");
+            // onSearch: function (oEvent) {
+            //     var aFilter = [],
+            //         sQuery = oEvent.getParameter("query");
 
-                if (sQuery && sQuery.length > 0) {
-                    var oFilter = new Filter("Schlw", FilterOperator.Contains, sQuery);
-                    aFilter.push(oFilter);
-                }
-                this.oView.byId("idSakTable").getBinding("items").filter(aFilter, "Application");
-
-                // if (sQuery && sQuery.length > 0) {
-                //     var aQueries = sQuery.split(" "); // 스페이스로 구분된 여러 조건
-                //     aQueries.forEach(function(query) {
-                //         aFilter.push(new Filter("Schlw", FilterOperator.Contains, query));
-                //         aFilter.push(new Filter("Saknr", FilterOperator.Contains, query));
-                //     });
-                // }
-
-                // this.oView.byId("idSakTable").getBinding("items").filter(new Filter({
-                //     filters: aFilter,
-                //     and: false
-                // }), "Application");
-            },
+            //     if (sQuery && sQuery.length > 0) {
+            //         var oFilter = new Filter("Schlw", FilterOperator.Contains, sQuery);
+            //         aFilter.push(oFilter);
+            //     }
+            //     this.oView.byId("idSakTable").getBinding("items").filter(aFilter, "Application");
+            // },
 
             // onSort: function ( oEvent ) {
             //     // sort 정보를 역으로바꾸기 위해 !를 사용
@@ -72,20 +52,60 @@ sap.ui.define([
                     saknr: sSaknr
                     
                 });
-                
-                // var oItem = oEvent.getSource(),
-                // oCtx = oItem.getBindingContext(),
-                // sBukrs = oCtx.getProperty("Burks"),
-                // sSaknr = oCtx.getProperty("Saknr");
+            },
 
-                // var oFCL = this.oView.getParent().getParent();
-                // oFCL.setLayout(fioriLibrary.LayoutType.TwoColumnsMidExpanded);
-                
-                // this.oRouter.navTo("detail", {
-                //     layout: fioriLibrary.LayoutType.TwoColumnsMidExpanded,
-                //     Bukrs: sBukrs,
-                //     Saknr: sSaknr
-                // });
+            handleValueHelp: function() {
+                // debugger;
+                if (!this._oValueHelpDialog) {
+                    Fragment.load({
+                        name: "sync.zeb.project2.view.Dialog",
+                        controller: this
+                    }).then(function(oValueHelpDialog){
+                        this._oValueHelpDialog = oValueHelpDialog;
+                        this.oView.addDependent(this._oValueHelpDialog);
+                        // this._configValueHelpDialog();
+                        this._oValueHelpDialog.open();
+                    }.bind(this));
+                } else {
+                    // this._configValueHelpDialog();
+                    this._oValueHelpDialog.open();
+                }
+            },
+    
+            _configValueHelpDialog: function() {
+                var sInputValue = this.oView.byId("sakInput").getValue(),
+                    oModel = this.oView.getModel(),
+                    aProducts = oModel.getProperty("/SakSet");
+    
+                aProducts.forEach(function (oProduct) {
+                    oProduct.selected = (oProduct.Saknr === sInputValue);
+                });
+                oModel.setProperty("/SakSet", aProducts);
+            },
+
+            handleSearch: function(oEvent) {
+                var sValue = oEvent.getParameter("value");
+                var oFilter = new Filter({
+                    filters: [
+                        new Filter("Saknr", FilterOperator.Contains, sValue),
+                        new Filter("Schlw", FilterOperator.Contains, sValue)
+                    ]
+                });
+                var oBinding = oEvent.getSource().getBinding("items");
+                oBinding.filter([oFilter]);
+            },
+
+            handleValueHelpClose : function (oEvent) {
+                var oSelectedItem = oEvent.getParameter("selectedItem"),
+                    oInput = this.oView.byId("sakInput");
+    
+                if (oSelectedItem) {
+                    oInput.setValue(oSelectedItem.getTitle());
+                }
+    
+                if (!oSelectedItem) {
+                    oInput.resetProperty("value");
+                }
             }
         });
     });
