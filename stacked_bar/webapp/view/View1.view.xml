@@ -85,15 +85,18 @@
                                         uiConfig="{ 'applicationSet': 'fiori' }" 
                                         vizType="stacked_column" 
                                         vizProperties="{
-                                            'title': { 
-                                                'visible': 'true', 
-                                                'text': '감가상각 진행률'
+                                            'plotArea': {
+                                                'dataLabel': {
+                                                    'type': 'percentage',
+                                                    'visible': true
                                                 },
-                                            'dataLabel' :{
-                                                'visible': 'true',
-                                                'showTotal': 'true'
-                                                } 
-                                            }"
+                                                'mode': 'percentage'
+                                            },
+                                            'title': { 
+                                                'visible': true, 
+                                                'text': '감가상각 진행률'
+                                            }
+                                        }"
                                         >
                                         <viz:dataset>
                                             <viz.data:FlattenedDataset data="{/AnlSet}">
@@ -120,20 +123,22 @@
                                 <chart:content>
                                     <Table id="chartContainerContentTable" items="{ path: '/AnlSet' }">
                                         <columns>
-                                            <Column demandPopin="true">
+                                            <Column demandPopin="true" hAlign="Center">
                                             <Label design="Bold" text="{i18n>labelAnln1}"/></Column>
-                                            <Column demandPopin="true">
-                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
-                                            <Column demandPopin="true">
-                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
-                                            <Column demandPopin="true">
-                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
-                                            <Column demandPopin="true">
-                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
-                                            <Column demandPopin="true">
-                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
-                                            <Column demandPopin="true">
-                                            <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
+                                            <Column demandPopin="true" hAlign="Right">
+                                            <!-- <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
+                                            <Column demandPopin="true"> -->
+                                            <Label design="Bold" text="{i18n>labelAmount}"/></Column>
+                                            <Column demandPopin="true" hAlign="Right">
+                                            <Label design="Bold" text="{i18n>labelRemamt}"/></Column>
+                                            <Column demandPopin="true" hAlign="Center">
+                                            <Label design="Bold" text="{i18n>labelDepmethod}"/></Column>
+                                            <Column demandPopin="true" hAlign="Center">
+                                            <Label design="Bold" text="{i18n>labelFixra}"/></Column>
+                                            <Column demandPopin="true" hAlign="Center">
+                                            <Label design="Bold" text="{i18n>labelAcqdate}"/></Column>
+                                            <Column demandPopin="true" hAlign="Center">
+                                            <Label design="Bold" text="{i18n>labelNdjar}"/></Column>
                                             <!-- <Column demandPopin="true">
                                             <Label design="Bold" text="{i18n>label}"/></Column>
                                             <Column demandPopin="true">
@@ -141,15 +146,40 @@
                                             <Column demandPopin="true">
                                             <Label design="Bold" text="{i18n>label}"/></Column> -->
                                         </columns>
-                                        <ColumnListItem press="">
-                                            <Text text="{Anln1}"></Text>
+                                        <ColumnListItem>
+                                            <cells>
+                                                <ObjectIdentifier title="{Anln1}" text="{Anlhtxt}" />
+                                                <ObjectNumber number="{
+                                                    parts: [
+                                                    {path: 'Amount'},
+                                                    {path: 'Waers'}
+                                                    ],
+                                                    type: 'sap.ui.model.type.Currency',
+                                                    formatOptions: {showMeasure: false}
+                                                }" 
+                                                unit="{Waers}" />
+                                                <ObjectNumber number="{
+                                                    parts: [
+                                                    {path: 'Remamt'},
+                                                    {path: 'Waers'}
+                                                    ],
+                                                    type: 'sap.ui.model.type.Currency',
+                                                    formatOptions: {showMeasure: false}
+                                                }" 
+                                                unit="{Waers}" />
+                                                <ObjectIdentifier text="{Depmethod}"/>
+                                                <ObjectIdentifier text="{Fixra}"/>
+                                                <ObjectIdentifier text="{Acqdate}"/>
+                                                <ObjectIdentifier text="{Ndjar}"/>
+                                            </cells>
+                                            <!-- <Text text="{Anln1}"></Text>
                                             <Text text="{Anlhtxt}"></Text>
                                             <Text text="{Amount}"></Text>
                                             <Text text="{Remamt}"></Text>
                                             <Text text="{Depmethod}"></Text>
                                             <Text text="{Fixra}"></Text>
                                             <Text text="{Acqdate}"></Text>
-                                            <Text text="{Ndjar}"></Text>
+                                            <Text text="{Ndjar}"></Text> -->
                                             <!-- <Text text="{SAPUI5}"></Text>
                                             <Text text="{ABAP}"></Text>
                                             <Text text="{JAVA}"></Text> -->
