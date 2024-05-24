@@ -1,0 +1,23 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+    <SelectDialog
+        noDataText="계정 정보가 없습니다."
+        title="G/L 계정 목록"
+        search="handleSearch"
+        confirm="handleValueHelpClose"
+        cancel="handleValueHelpClose"
+        items="{
+            path : '/SakSet',
+            sorter : {
+                path : 'Saknr',
+                descending : false
+            }
+        }">
+        <StandardListItem selected="{selected}"
+            title="{Saknr}"
+            description="{Schlw}" 
+            type="Active"/>
+    </SelectDialog>
+</c:FragmentDefinition>
