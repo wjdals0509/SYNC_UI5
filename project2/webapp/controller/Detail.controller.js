@@ -50,7 +50,7 @@ sap.ui.define([
 				layout: fioriLibrary.LayoutType.ThreeColumnsEndExpanded,
                 bukrs: sBukrs,
                 saknr: sSaknr,
-				   shkzg: sShkzg
+				shkzg: sShkzg
             });
 		}
     });

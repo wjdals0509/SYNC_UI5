@@ -27,8 +27,8 @@
             </EntityType>
             <EntityType Name="Bseg" sap:content-version="1">
                 <Key>
+                    <PropertyRef Name="Bukrs"/>
                     <PropertyRef Name="Saknr"/>
-                    <PropertyRef Name="Shkzg"/>
                 </Key>
                 <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="회사코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Saknr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="계정번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>

@@ -20,6 +20,17 @@
 		</f:header>
 		<f:content>
 			<m:VBox fitContainer="true">
+				<m:OverflowToolbar class="sapFDynamicPageAlignContent">
+					<m:ToolbarSpacer/>
+					<m:SearchField 
+						search=".onSearch" 
+						width="10rem" 
+						liveChange=".onSearch"
+						placeholder="적요 검색"/>
+					<!-- <OverflowToolbarButton icon="sap-icon://add" text="Add" type="Transparent" press=".onAdd"/> -->
+					<!-- <OverflowToolbarButton icon="sap-icon://sort" text="Sort" type="Transparent" press=".onSort"/> -->
+				</m:OverflowToolbar>
+
 				<m:Table
 					id="idBsegTable"
 					items="{/BsegSet}"
@@ -27,21 +38,21 @@
 					<m:columns>
 						<!-- <m:Column><m:Text text="{i18n>labelBukrs}"></m:Text></m:Column> -->
 						<m:Column hAlign="Center"><m:Text text="{i18n>labelBelnrD}"></m:Text></m:Column>
-						<m:Column><m:Text text="{i18n>labelSaknr}"></m:Text></m:Column>
-						<!-- <m:Column><m:Text text="{i18n>labelBktxt}"></m:Text></m:Column> -->
-						<m:Column><m:Text text="{i18n>labelShkzg}"></m:Text></m:Column>
-						<!-- <m:Column hAlign="Right"><m:Text text="{i18n>labeldDmbtr}"></m:Text></m:Column> -->
-						<!-- <m:Column hAlign="Right"><m:Text text="{i18n>labeldBudat}"></m:Text></m:Column> -->
+						<!-- <m:Column><m:Text text="{i18n>labelSaknr}"></m:Text></m:Column> -->
+						<m:Column><m:Text text="{i18n>labelBktxt}"></m:Text></m:Column>
+						<!-- <m:Column><m:Text text="{i18n>labelShkzg}"></m:Text></m:Column> -->
+						<m:Column hAlign="Right"><m:Text text="{i18n>labeldDmbtr}"></m:Text></m:Column>
+						<m:Column hAlign="Center"><m:Text text="{i18n>labeldBudat}"></m:Text></m:Column>
 					</m:columns>
 					<m:items>
-						<m:ColumnListItem type="Navigation">
+						<m:ColumnListItem>
 							<m:cells>
 								<!-- <m:ObjectIdentifier title="{Bukrs}"/> -->
 								<m:ObjectIdentifier title="{BelnrD}"/>
-								<m:ObjectIdentifier title="{Saknr}" text="{Schlw}" />
-								<!-- <m:ObjectAttribute text="{Bktxt}"/> -->
-								<m:ObjectIdentifier title="{Shkzg}"/>
-								<!-- <m:ObjectNumber 
+								<!-- <m:ObjectIdentifier title="{Saknr}" text="{Schlw}" /> -->
+								<m:ObjectAttribute text="{Bktxt}"/>
+								<!-- <m:ObjectIdentifier title="{Shkzg}"/> -->
+								<m:ObjectNumber 
 								number="{
 									parts: [
 									{path: 'Dmbtr'},
@@ -50,8 +61,8 @@
 									type: 'sap.ui.model.type.Currency',
 									formatOptions: {showMeasure: false}
 								}" 
-								unit="{Hwaer}"/> -->
-								<!-- <m:ObjectAttribute text="{Budat}"/> -->
+								unit="{Hwaer}"/>
+								<m:ObjectAttribute text="{Budat}"/>
 							</m:cells>
 						</m:ColumnListItem>
 					</m:items>
