@@ -75,7 +75,7 @@
                     </Panel>
                 </layout:fixContent>
                 <layout:fixContent>
-                    <chart:ChartContainer id="chartContainer" showFullScreen="true">
+                    <chart:ChartContainer id="chartContainer" showFullScreen="true" showSelectionDetails="true">
                         <chart:content>
                             <chart:ChartContainerContent icon="sap-icon://vertical-stacked-chart" title="Stacked_bar Chart">
                                 <chart:content>
@@ -173,7 +173,11 @@
                                                 }" 
                                                 unit="{Waers}" />
                                                 <ObjectIdentifier text="{Depmethod}"/>
-                                                <ObjectIdentifier text="{Fixra}"/>
+                                                <!-- <ObjectIdentifier text="{Fixra}"/> -->
+                                                <ObjectNumber number="{
+                                                    path: 'Fixra', 
+                                                    type: 'sap.ui.model.type.Integer'
+                                                }"/>
                                                 <ObjectIdentifier text="{Acqdate}"/>
                                                 <ObjectIdentifier text="{Ndjar}"/>
                                             </cells>
