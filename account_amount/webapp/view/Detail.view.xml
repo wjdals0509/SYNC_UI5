@@ -3,7 +3,9 @@
 	xmlns:m="sap.m"
 	xmlns:f="sap.f"
 	xmlns:form="sap.ui.layout.form"
-	xmlns:mvc="sap.ui.core.mvc">
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:micro="sap.suite.ui.microchart"
+	>
     <ObjectPageLayout
 		id="ObjectPageLayout"
 		showTitleInHeaderContent="true"
@@ -105,6 +107,15 @@
 									</m:ColumnListItem>
 								</m:items>
 							</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection title="비율">
+				<subSections>
+					<ObjectPageSubSection >
+						<blocks>
+							<m:Text text="차트들어가는곳"></m:Text>
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>
