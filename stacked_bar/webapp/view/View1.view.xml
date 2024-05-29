@@ -24,10 +24,10 @@
             <layout:FixFlex 
                 id="idFixFlex" 
                 minFlexSize="250">
-                <layout:fixContent>
-                    <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="true" headerText="Settings" width="auto">
-                        <content>
-                            <HBox class='settingsHBox'>
+                <!-- <layout:fixContent> -->
+                    <!-- <Panel id='settingsPanel' class="panelStyle" expandable="true" expanded="true" headerText="Settings" width="auto"> -->
+                        <!-- <content> -->
+                            <!-- <HBox class='settingsHBox'> -->
                             <!-- <VBox class='settingsBox'>
                                 <Label text="{/dataset/name}" design="Bold" class='settingsLabel'></Label>
                                 <RadioButtonGroup id='datasetRadioGroup'
@@ -37,31 +37,31 @@
                                     </buttons>
                                 </RadioButtonGroup>
                             </VBox> -->
-                            <VBox class='settingsBox'>
+                            <!-- <VBox class='settingsBox'>
                                 <Label text = '{Anlhtxt}' design="Bold" class='settingsLabel'></Label>
                                 <Switch class='settingsSwitch' state="{/dataLabel/defaultState}" change='onDataLabelChanged'>
                                     <layoutData>
                                         <FlexItemData growFactor="1" />
                                     </layoutData>
                                 </Switch>
-                            </VBox>
-                            <VBox class='settingsBox'>
+                            </VBox> -->
+                            <!-- <VBox class='settingsBox'>
                                 <Label text = '{/sumLabel/name}' design="Bold" class='settingsLabel'></Label>
                                 <Switch id="sumLabelSwitch" class='settingsSwitch' state="{/sumLabel/defaultState}" change='onSumLabelChanged'>
                                     <layoutData>
                                         <FlexItemData growFactor="1" />
                                     </layoutData>
                                 </Switch>
-                            </VBox>
-                            <VBox class='settingsBox'>
+                            </VBox> -->
+                            <!-- <VBox class='settingsBox'>
                                 <Label text = '{/axisTitle/name}' design="Bold" class='settingsLabel'></Label>
                                 <Switch class='settingsSwitch' state="{/axisTitle/defaultState}" change='onAxisTitleChanged'>
                                     <layoutData>
                                         <FlexItemData growFactor="1" />
                                     </layoutData>
                                 </Switch>
-                            </VBox>
-                            <VBox class='settingsBox'>
+                            </VBox> -->
+                            <!-- <VBox class='settingsBox'>
                                 <Label text='{/type/name}' design="Bold" class='settingsLabel'></Label>
                                 <RadioButtonGroup id='typeRadioGroup'
                                     buttons="{path: '/type/values'}" >
@@ -69,15 +69,15 @@
                                         <RadioButton class='settingsRadio' text="{name}" select='onTypeSelected'/>
                                     </buttons>
                                 </RadioButtonGroup>
-                            </VBox>
-                            </HBox>
-                        </content>
-                    </Panel>
-                </layout:fixContent>
+                            </VBox> -->
+                            <!-- </HBox> -->
+                        <!-- </content> -->
+                    <!-- </Panel> -->
+                <!-- </layout:fixContent> -->
                 <layout:fixContent>
                     <chart:ChartContainer id="chartContainer" showFullScreen="true" showSelectionDetails="true">
                         <chart:content>
-                            <chart:ChartContainerContent icon="sap-icon://vertical-stacked-chart" title="Stacked_bar Chart">
+                            <chart:ChartContainerContent icon="sap-icon://horizontal-stacked-chart" title="Stacked_bar Chart">
                                 <chart:content>
                                     <viz:Popover id="idPopOver" />
                                     <viz:VizFrame 
@@ -126,6 +126,19 @@
                             </chart:ChartContainerContent>
                             <chart:ChartContainerContent icon="sap-icon://table-view" title="Table">
                                 <chart:content>
+                                    <SearchField
+                                        enableSuggestions="false"
+                                        enabled="true"
+                                        maxLength="0"
+                                        placeholder=""
+                                        refreshButtonTooltip=""
+                                        showRefreshButton="false"
+                                        showSearchButton="true"
+                                        value=""
+                                        visible="true"
+                                        width=""
+                                        class="sapUiSmallMargin"
+                                    />
                                     <Table id="chartContainerContentTable" items="{ path: '/AnlSet' }">
                                         <columns>
                                             <Column demandPopin="true" hAlign="Center">
@@ -176,10 +189,14 @@
                                                 <!-- <ObjectIdentifier text="{Fixra}"/> -->
                                                 <ObjectNumber number="{
                                                     path: 'Fixra', 
-                                                    type: 'sap.ui.model.type.Integer'
+                                                    formatter: '.formatter.removeLeadingZeros'
                                                 }"/>
                                                 <ObjectIdentifier text="{Acqdate}"/>
-                                                <ObjectIdentifier text="{Ndjar}"/>
+                                                <!-- <ObjectIdentifier text="{Ndjar}"/> -->
+                                                <ObjectNumber number="{
+                                                    path: 'Ndjar', 
+                                                    formatter: '.formatter.removeLeadingZeros'
+                                                }"/>
                                             </cells>
                                             <!-- <Text text="{Anln1}"></Text>
                                             <Text text="{Anlhtxt}"></Text>
