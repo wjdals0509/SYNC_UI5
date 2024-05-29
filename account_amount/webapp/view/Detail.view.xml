@@ -4,7 +4,12 @@
 	xmlns:f="sap.f"
 	xmlns:form="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:micro="sap.suite.ui.microchart"
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:layout="sap.ui.layout"
+	xmlns:chart="sap.suite.ui.commons"
+	height="100%"
 	>
     <ObjectPageLayout
 		id="ObjectPageLayout"
@@ -115,7 +120,39 @@
 				<subSections>
 					<ObjectPageSubSection >
 						<blocks>
-							<m:Text text="차트들어가는곳"></m:Text>
+							<!-- <layout:FixFlex 
+								id="idFixFlex" 
+								minFlexSize="250">
+							<layout:fixContent>
+							<chart:ChartContainer id="chartContainer" showFullScreen="true" showSelectionDetails="true">
+								<chart:content>
+									<viz:Popover id="idPopOver" />
+									<viz:VizFrame 
+										id="idVizFrame"
+										uiConfig="{applicationSet:'fiori'}"
+										height='100%' width="100%" vizType='donut' 
+									>
+										<viz:dataset>
+											<viz.data:FlattenedDataset data="{toConnection}">
+												<viz.data:dimensions>
+													<viz.data:DimensionDefinition name="차대지시자" value="{Shkzg}" />
+												</viz.data:dimensions>
+												<viz.data:measures>
+													<viz.data:MeasureDefinition name="금액" value="{Dmbtr}" />
+												</viz.data:measures>
+											</viz.data:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<viz.feeds:FeedItem uid="size" type="Measure"
+												values="차대지시자" />
+											<viz.feeds:FeedItem uid="color" type="Dimension"
+												values="금액" />
+										</viz:feeds>
+									</viz:VizFrame>		
+								</chart:content>
+							</chart:ChartContainer>
+							</layout:fixContent>
+							</layout:FixFlex> -->
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>
