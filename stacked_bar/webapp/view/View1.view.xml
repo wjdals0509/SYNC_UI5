@@ -95,11 +95,6 @@
                                             'title': { 
                                                 'visible': true, 
                                                 'text': '감가상각 진행률'
-                                            },
-                                            'valueAxisFeed': {
-                                                'label': {
-                                                    'formatString': '0.0%'
-                                                }
                                             }
                                         }"
                                         >
@@ -126,91 +121,79 @@
                             </chart:ChartContainerContent>
                             <chart:ChartContainerContent icon="sap-icon://table-view" title="Table">
                                 <chart:content>
-                                    <SearchField
+                                    <VBox fitContainer="true"
+                                    >
+                                        <SearchField
                                         enableSuggestions="false"
                                         enabled="true"
                                         maxLength="0"
-                                        placeholder=""
+                                        placeholder="입력하세요"
                                         refreshButtonTooltip=""
                                         showRefreshButton="false"
                                         showSearchButton="true"
                                         value=""
                                         visible="true"
-                                        width=""
+                                        width="10rem"
                                         class="sapUiSmallMargin"
-                                    />
-                                    <Table id="chartContainerContentTable" items="{ path: '/AnlSet' }">
-                                        <columns>
-                                            <Column demandPopin="true" hAlign="Center">
-                                            <Label design="Bold" text="{i18n>labelAnln1}"/></Column>
-                                            <Column demandPopin="true" hAlign="Right">
-                                            <!-- <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column>
-                                            <Column demandPopin="true"> -->
-                                            <Label design="Bold" text="{i18n>labelAmount}"/></Column>
-                                            <Column demandPopin="true" hAlign="Right">
-                                            <Label design="Bold" text="{i18n>labelRemamt}"/></Column>
-                                            <Column demandPopin="true" hAlign="Center">
-                                            <Label design="Bold" text="{i18n>labelDepmethod}"/></Column>
-                                            <Column demandPopin="true" hAlign="Center">
-                                            <Label design="Bold" text="{i18n>labelFixra}"/></Column>
-                                            <Column demandPopin="true" hAlign="Center">
-                                            <Label design="Bold" text="{i18n>labelAcqdate}"/></Column>
-                                            <Column demandPopin="true" hAlign="Center">
-                                            <Label design="Bold" text="{i18n>labelNdjar}"/></Column>
-                                            <!-- <Column demandPopin="true">
-                                            <Label design="Bold" text="{i18n>label}"/></Column>
-                                            <Column demandPopin="true">
-                                            <Label design="Bold" text="{i18n>label}"/></Column>
-                                            <Column demandPopin="true">
-                                            <Label design="Bold" text="{i18n>label}"/></Column> -->
-                                        </columns>
-                                        <ColumnListItem>
-                                            <cells>
-                                                <ObjectIdentifier title="{Anln1}" text="{Anlhtxt}" />
-                                                <ObjectNumber number="{
-                                                    parts: [
-                                                    {path: 'Amount'},
-                                                    {path: 'Waers'}
-                                                    ],
-                                                    type: 'sap.ui.model.type.Currency',
-                                                    formatOptions: {showMeasure: false}
-                                                }" 
-                                                unit="{Waers}" />
-                                                <ObjectNumber number="{
-                                                    parts: [
-                                                    {path: 'Remamt'},
-                                                    {path: 'Waers'}
-                                                    ],
-                                                    type: 'sap.ui.model.type.Currency',
-                                                    formatOptions: {showMeasure: false}
-                                                }" 
-                                                unit="{Waers}" />
-                                                <ObjectIdentifier text="{Depmethod}"/>
-                                                <!-- <ObjectIdentifier text="{Fixra}"/> -->
-                                                <ObjectNumber number="{
-                                                    path: 'Fixra', 
-                                                    formatter: '.formatter.removeLeadingZeros'
-                                                }"/>
-                                                <ObjectIdentifier text="{Acqdate}"/>
-                                                <!-- <ObjectIdentifier text="{Ndjar}"/> -->
-                                                <ObjectNumber number="{
-                                                    path: 'Ndjar', 
-                                                    formatter: '.formatter.removeLeadingZeros'
-                                                }"/>
-                                            </cells>
-                                            <!-- <Text text="{Anln1}"></Text>
-                                            <Text text="{Anlhtxt}"></Text>
-                                            <Text text="{Amount}"></Text>
-                                            <Text text="{Remamt}"></Text>
-                                            <Text text="{Depmethod}"></Text>
-                                            <Text text="{Fixra}"></Text>
-                                            <Text text="{Acqdate}"></Text>
-                                            <Text text="{Ndjar}"></Text> -->
-                                            <!-- <Text text="{SAPUI5}"></Text>
-                                            <Text text="{ABAP}"></Text>
-                                            <Text text="{JAVA}"></Text> -->
-                                        </ColumnListItem>
-                                    </Table>
+                                        />
+                                        <Table id="chartContainerContentTable" items="{ path: '/AnlSet' }">
+                                            <columns>
+                                                <Column demandPopin="true" hAlign="Center">
+                                                <Label design="Bold" text="{i18n>labelAnln1}"/></Column>
+                                                <!-- <Column demandPopin="true" hAlign="Right"> -->
+                                                <!-- <Label design="Bold" text="{i18n>labelAnlhtxt}"/></Column> -->
+                                                <Column demandPopin="true" hAlign="Right">
+                                                <Label design="Bold" text="{i18n>labelAmount}"/></Column>
+                                                <Column demandPopin="true" hAlign="Right">
+                                                <Label design="Bold" text="{i18n>labelRemamt}"/></Column>
+                                                <Column demandPopin="true" hAlign="Center">
+                                                <Label design="Bold" text="{i18n>labelDepmethod}"/></Column>
+                                                <Column demandPopin="true" hAlign="Right" width="5em">
+                                                <Label design="Bold" text="{i18n>labelFixra}"/></Column>
+                                                <Column demandPopin="true" hAlign="Center">
+                                                <Label design="Bold" text="{i18n>labelAcqdate}"/></Column>
+                                                <Column demandPopin="true" hAlign="Center">
+                                                <Label design="Bold" text="{i18n>labelNdjar}"/></Column>
+                                            </columns>
+                                            <ColumnListItem>
+                                                <cells>
+                                                    <ObjectIdentifier title="{Anln1}" text="{Anlhtxt}" />
+                                                    <ObjectNumber number="{
+                                                        parts: [
+                                                        {path: 'Amount'},
+                                                        {path: 'Waers'}
+                                                        ],
+                                                        type: 'sap.ui.model.type.Currency',
+                                                        formatOptions: {showMeasure: false}
+                                                    }" 
+                                                    unit="{Waers}" />
+                                                    <ObjectNumber number="{
+                                                        parts: [
+                                                        {path: 'Remamt'},
+                                                        {path: 'Waers'}
+                                                        ],
+                                                        type: 'sap.ui.model.type.Currency',
+                                                        formatOptions: {showMeasure: false}
+                                                    }" 
+                                                    unit="{Waers}" />
+                                                    <ObjectIdentifier text="{Depmethod}"/>
+                                                    <!-- <ObjectIdentifier text="{Fixra}"/> -->
+                                                    <ObjectNumber number="{
+                                                        path: 'Fixra', 
+                                                        formatter: '.formatter.removeLeadingZeros'
+                                                    }"
+                                                    unit="%"/>
+                                                    <ObjectIdentifier text="{Acqdate}"/>
+                                                    <!-- <ObjectIdentifier text="{Ndjar}"/> -->
+                                                    <ObjectNumber number="{
+                                                        path: 'Ndjar', 
+                                                        formatter: '.formatter.removeLeadingZeros'
+                                                    }"
+                                                    unit="년" />
+                                                </cells>
+                                            </ColumnListItem>
+                                        </Table>    
+                                    </VBox>
                                 </chart:content>
                             </chart:ChartContainerContent>
                         </chart:content>
