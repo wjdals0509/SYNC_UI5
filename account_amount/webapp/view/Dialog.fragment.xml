@@ -8,6 +8,8 @@
         search="handleSearch"
         confirm="handleValueHelpClose"
         cancel="handleValueHelpClose"
+        showClearButton="true"
+        clear="handleClear"
         items="{
             path : '/SakSet',
             sorter : {

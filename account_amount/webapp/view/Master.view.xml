@@ -8,7 +8,12 @@
 			<f:DynamicPageTitle>
 				<f:heading>
                     <HBox alignItems="Center" justifyContent="SpaceBetween">
-                        <Image src="../img/logo1.png" width="200px"/>
+                        <!-- <Image src="../img/logo1.png" width="200px"/> -->
+                        <Image src="{
+                            value: 'sync/zeb/accountamount/img/logo1.png',
+                            formatter: 'sap.ui.require.toUrl'
+                        }"
+                        width="200px"/>
                         <!-- <Text text="WannaDo" /> -->
                     </HBox>
                 </f:heading>
@@ -35,7 +40,7 @@
                     <Input
                         id="sakInput"
                         type="Text"
-                        value="검색어를 선택하세요"
+                        placeholder="검색어를 선택하세요"
                         showValueHelp="true"
                         valueHelpOnly="true"
                         valueHelpRequest="handleValueHelp"

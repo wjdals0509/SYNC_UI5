@@ -120,39 +120,40 @@
 				<subSections>
 					<ObjectPageSubSection >
 						<blocks>
-							<!-- <layout:FixFlex 
-								id="idFixFlex" 
-								minFlexSize="250">
-							<layout:fixContent>
-							<chart:ChartContainer id="chartContainer" showFullScreen="true" showSelectionDetails="true">
-								<chart:content>
-									<viz:Popover id="idPopOver" />
-									<viz:VizFrame 
-										id="idVizFrame"
-										uiConfig="{applicationSet:'fiori'}"
-										height='100%' width="100%" vizType='donut' 
-									>
-										<viz:dataset>
-											<viz.data:FlattenedDataset data="{toConnection}">
-												<viz.data:dimensions>
-													<viz.data:DimensionDefinition name="차대지시자" value="{Shkzg}" />
-												</viz.data:dimensions>
-												<viz.data:measures>
-													<viz.data:MeasureDefinition name="금액" value="{Dmbtr}" />
-												</viz.data:measures>
-											</viz.data:FlattenedDataset>
-										</viz:dataset>
-										<viz:feeds>
-											<viz.feeds:FeedItem uid="size" type="Measure"
-												values="차대지시자" />
-											<viz.feeds:FeedItem uid="color" type="Dimension"
-												values="금액" />
-										</viz:feeds>
-									</viz:VizFrame>		
-								</chart:content>
-							</chart:ChartContainer>
-							</layout:fixContent>
-							</layout:FixFlex> -->
+							<viz:Popover id="idPopOver" />
+							<viz:VizFrame 
+								id="idVizFrame"
+								uiConfig="{applicationSet:'fiori'}"
+								height="300px" width="100%" vizType='donut'
+								vizProperties="{
+									'dataLabel': {
+										visible: 'true'
+									},
+									'plotArea': {
+										'dataLabel': {
+											'type': 'percentage'
+										}
+									},
+									'title': { 
+										'visible': false
+									}
+								}"
+							>
+								<viz:dataset>
+									<viz.data:FlattenedDataset data="{toConnection}">
+										<viz.data:dimensions>
+											<viz.data:DimensionDefinition name="차대지시자" value="{Shkzg}" />
+										</viz.data:dimensions>
+										<viz.data:measures>
+											<viz.data:MeasureDefinition name="금액" value="{Dmbtr}" />
+										</viz.data:measures>
+									</viz.data:FlattenedDataset>
+								</viz:dataset>
+								<viz:feeds>
+									<viz.feeds:FeedItem uid="size" type="Measure" values="금액" />
+									<viz.feeds:FeedItem uid="color" type="Dimension" values="차대지시자" />
+								</viz:feeds>
+							</viz:VizFrame>        
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>

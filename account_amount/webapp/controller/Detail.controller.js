@@ -1,7 +1,12 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	'sap/f/library',
-], function (controller, fioriLibrary) {
+	'sap/viz/ui5/controls/Popover',
+    'sap/viz/ui5/controls/VizFrame',
+    'sap/viz/ui5/data/FlattenedDataset',
+    'sap/viz/ui5/data/DimensionDefinition',
+    'sap/viz/ui5/data/MeasureDefinition'
+], function (controller, fioriLibrary, Popover, VizFrame, FlattenedDataset, DimensionDefinition, MeasureDefinition) {
     "use strict";
 
     return controller.extend("sync.zeb.accountamount.controller.Detail", {
@@ -15,6 +20,9 @@ sap.ui.define([
 			this.oRouter.getRoute("master").attachPatternMatched(this._onSaknrMatched, this);
 			this.oRouter.getRoute("detail").attachPatternMatched(this._onSaknrMatched, this);
 			this.oRouter.getRoute("detailDetail").attachPatternMatched(this._onSaknrMatched, this);
+
+			// Initialize VizFrame Popover
+            this._initVizFrame();
 		},
 
         _onSaknrMatched: function (oEvent) {
@@ -24,9 +32,25 @@ sap.ui.define([
 			// debugger;
             let sPath = "/SakSet(Bukrs='" + this._bukrs + "',Saknr='" + this._saknr + "')";
 			this.getView().bindElement(sPath);
-		
+
+			this._updateVizFrame(sPath);
         },
-		
+
+        _initVizFrame: function () {
+            var oVizFrame = this.getView().byId("idVizFrame");
+            var oPopOver = this.getView().byId("idPopOver");
+            oPopOver.connect(oVizFrame.getVizUid());
+        },
+		_updateVizFrame: function (sPath) {
+            var oVizFrame = this.getView().byId("idVizFrame");
+            var oDataset = new FlattenedDataset({
+                dimensions: [new DimensionDefinition({name: "차대지시자", value: "{Shkzg}"})],
+                measures: [new MeasureDefinition({name: "금액", value: "{Dmbtr}"})],
+                data: "{toConnection}"
+            });
+            oVizFrame.setDataset(oDataset);
+            oVizFrame.setModel(this.getView().getModel());
+        },
         onEditToggleButtonPress: function() {
 			var oObjectPage = this.getView().byId("ObjectPageLayout"),
 				bCurrentShowFooterState = oObjectPage.getShowFooter();

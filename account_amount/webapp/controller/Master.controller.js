@@ -40,11 +40,11 @@ sap.ui.define([
                     }).then(function(oValueHelpDialog){
                         this._oValueHelpDialog = oValueHelpDialog;
                         this.oView.addDependent(this._oValueHelpDialog);
-                        // this._configValueHelpDialog();
+                        this._configValueHelpDialog();
                         this._oValueHelpDialog.open();
                     }.bind(this));
                 } else {
-                    // this._configValueHelpDialog();
+                    this._configValueHelpDialog();
                     this._oValueHelpDialog.open();
                 }
             },
@@ -54,10 +54,22 @@ sap.ui.define([
                     oModel = this.oView.getModel(),
                     aProducts = oModel.getProperty("/SakSet");
     
-                aProducts.forEach(function (oProduct) {
-                    oProduct.selected = (oProduct.Saknr === sInputValue);
-                });
-                oModel.setProperty("/SakSet", aProducts);
+                    if (!aProducts) {
+                        console.error("계정정보가 없습니다");
+                        return;
+                    }
+                
+                    // Ensure the selected property exists and is set
+                    aProducts.forEach(function (oProduct) {
+                        if (oProduct) {
+                            oProduct.selected = (oProduct.Saknr === sInputValue);
+                        }
+                    });
+                
+                    // Update the model
+                    oModel.setProperty("/SakSet", aProducts);
+                    // Optional: Refresh bindings if necessary
+                    oModel.refresh(true);
             },
 
             handleSearch: function(oEvent) {
@@ -96,6 +108,13 @@ sap.ui.define([
                 if (!oSelectedItem) {
                     oInput.resetProperty("value");
                 }
+            },
+            handleClear: function (oEvent) {
+                var oInput = this.oView.byId("sakInput");
+                oInput.setValue("");
+                var oTable = this.oView.byId("idSakTable");
+                var oBinding = oTable.getBinding("items");
+                oBinding.filter([]);
             }
         });
     });
