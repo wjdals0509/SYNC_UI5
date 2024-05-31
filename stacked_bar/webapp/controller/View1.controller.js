@@ -65,7 +65,7 @@ sap.ui.define(
                 and: true
             });
         }
-        console.log(oTableDateState);
+        // console.log(oTableDateState);
 
         let oDataset = this.byId("chartContainerContentTable");
         let oBinding = oDataset.getBinding("items");
