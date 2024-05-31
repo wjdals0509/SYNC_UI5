@@ -9,6 +9,7 @@
                     <PropertyRef Name="Saknr"/>
                     <PropertyRef Name="Anlkl"/>
                     <PropertyRef Name="Anln1"/>
+                    <PropertyRef Name="Acqdate"/>
                 </Key>
                 <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="회사코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="회계연도" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
