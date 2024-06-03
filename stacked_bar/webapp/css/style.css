@@ -1,1 +1,13 @@
 /* Enter your custom styles here */
+
+.sapUiSizeCompact .sapMInputBase {
+    height: 0.625rem;
+}
+
+.sapUiSizeCompact .sapMTB {
+    height: 2.75rem;
+}
+
+.sapMTBNewFlex {
+    justify-content: flex-end;
+}
