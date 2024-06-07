@@ -74,36 +74,34 @@ sap.ui.define([
 
             handleSearch: function(oEvent) {
                 var sValue = oEvent.getParameter("value");
-                var oFilter = new Filter({
-                    filters: [
+                var aFilter = [
                         new Filter("Saknr", FilterOperator.Contains, sValue),
                         new Filter("Schlw", FilterOperator.Contains, sValue)
-                    ]
-                });
+                    ];
                 var oBinding = oEvent.getSource().getBinding("items");
-                oBinding.filter([oFilter]);
+                oBinding.filter(aFilter);
             },
 
             handleValueHelpClose : function (oEvent) {
                 var oSelectedItem = oEvent.getParameter("selectedItem"),
                     oInput = this.oView.byId("sakInput");
-    
+                
+                var aFilter = [];
+
                 if (oSelectedItem) {
                     oInput.setValue(oSelectedItem.getTitle());
                     
                     // 선택한 값을 검색 조건으로 사용
                     var sSelectedKey = oSelectedItem.getTitle();
-                    var oFilter = new Filter({
-                        filters: [
-                            new Filter("Saknr", FilterOperator.Contains, sSelectedKey)
-                        ]
-                    });
+                    var oFilter = new Filter("Saknr", FilterOperator.Contains, sSelectedKey);
 
-                    // 테이블 필터링
-                    var oTable = this.oView.byId("idSakTable");
-                    var oBinding = oTable.getBinding("items");
-                    oBinding.filter([oFilter]);
+                    aFilter.push(oFilter);
                 }
+                
+                // 테이블 필터링
+                var oTable = this.oView.byId("idSakTable");
+                var oBinding = oTable.getBinding("items");
+                oBinding.filter(aFilter);
     
                 if (!oSelectedItem) {
                     oInput.resetProperty("value");
